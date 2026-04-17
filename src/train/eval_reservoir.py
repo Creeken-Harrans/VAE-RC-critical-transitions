@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import numpy as np
+from tqdm import tqdm
 
 from src.data.lorenz import LorenzConfig, simulate_lorenz
 from src.models.reservoir.esn_parameter_driven import ParameterDrivenReservoir
@@ -40,7 +41,11 @@ def main() -> None:
             detector = lambda pred: detect_food_chain_health(pred, cfg["detector"])
 
         critical_latent = []
-        for r_id in range(cfg["evaluation"]["num_realizations"]):
+        for r_id in tqdm(
+            range(cfg["evaluation"]["num_realizations"]),
+            desc=f"eval_reservoir:{cfg['experiment_name']}",
+            leave=True,
+        ):
             reservoir_i = ParameterDrivenReservoir(
                 input_dim=reservoir.input_dim,
                 param_dim=reservoir.param_dim,
@@ -116,7 +121,9 @@ def main() -> None:
         truth_healthy = []
         pred_is_unhealthy = []
         outside_training = []
-        for idx, (rho, beta) in enumerate(mapped):
+        for idx, (rho, beta) in enumerate(
+            tqdm(mapped, desc=f"two_param_truth_scan:{cfg['experiment_name']}", leave=True)
+        ):
             is_outside = not (
                 cfg["data"]["train_rho_min"] <= rho <= cfg["data"]["train_rho_max"]
                 and cfg["data"]["train_beta_min"] <= beta <= cfg["data"]["train_beta_max"]

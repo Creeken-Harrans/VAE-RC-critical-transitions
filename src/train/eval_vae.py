@@ -63,7 +63,7 @@ def main() -> None:
     if top_k == 1:
         active_z = mu[:, stats["active"][0]]
         fit = fit_single_affine(active_z, true_params[:, 0])
-        line = fit_line_xy(true_params[:, 0], active_z)["prediction"]
+        line = np.asarray(fit_line_xy(true_params[:, 0], active_z)["prediction"])
         save_scatter_with_fit(
             dirs["figures"] / f"{fig_prefix}_latent_vs_{cfg['evaluation']['param_name']}.png",
             true_params[:, 0],

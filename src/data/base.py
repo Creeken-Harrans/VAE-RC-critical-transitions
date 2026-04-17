@@ -19,6 +19,16 @@ class TrajectoryBundle:
     norm_std: np.ndarray | None = None
 
     def save(self, path: str | Path) -> None:
+        norm_mean = (
+            np.asarray(self.norm_mean, dtype=np.float32)
+            if self.norm_mean is not None
+            else np.array([], dtype=np.float32)
+        )
+        norm_std = (
+            np.asarray(self.norm_std, dtype=np.float32)
+            if self.norm_std is not None
+            else np.array([], dtype=np.float32)
+        )
         np.savez_compressed(
             path,
             trajectories=self.trajectories.astype(np.float32),
@@ -27,8 +37,8 @@ class TrajectoryBundle:
             param_names=np.array(self.param_names, dtype=object),
             system_type=self.system_type,
             meta=np.array([self.meta], dtype=object),
-            norm_mean=None if self.norm_mean is None else self.norm_mean.astype(np.float32),
-            norm_std=None if self.norm_std is None else self.norm_std.astype(np.float32),
+            norm_mean=norm_mean,
+            norm_std=norm_std,
         )
 
 

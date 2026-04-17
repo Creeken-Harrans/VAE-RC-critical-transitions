@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from src.train.train_vae import generate_bundle, load_resolved_config, npz_data_path, parse_args
 from src.utils.io import get_output_dirs
 
