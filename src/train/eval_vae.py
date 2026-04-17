@@ -49,7 +49,16 @@ def main() -> None:
 
     top_k = 2 if cfg["system"]["type"] == "lorenz_two_param" else 1
     stats = select_active_channels(mu, logvar, top_k=top_k)
-    np.savez_compressed(dirs["vae"] / "latent_stats.npz", mu=mu, logvar=logvar, true_params=true_params, **stats)
+    latent_payload = {
+        "mu": mu,
+        "logvar": logvar,
+        "true_params": true_params,
+        "var_mu": stats["var_mu"],
+        "mean_sigma2": stats["mean_sigma2"],
+        "score": stats["score"],
+        "active": stats["active"],
+    }
+    np.savez_compressed(dirs["vae"] / "latent_stats.npz", **latent_payload)
 
     fig_prefix = cfg["figures"]["prefix"]
     save_channel_stats(dirs["figures"] / f"{fig_prefix}_channel_stats.png", stats["var_mu"], stats["mean_sigma2"], cfg["experiment_name"])
@@ -73,13 +82,17 @@ def main() -> None:
             "z_hat",
             cfg["experiment_name"],
         )
-        summary["linear_mapping_coefficients"] = {"coef": fit["coef"].tolist(), "intercept": fit["intercept"], "r2": fit["score"]}
+        summary["linear_mapping_coefficients"] = {
+            "coef": np.asarray(fit["coef"]).tolist(),
+            "intercept": fit["intercept"],
+            "r2": fit["score"],
+        }
     else:
         active_z = mu[:, stats["active"]]
         fit = fit_multi_affine(active_z, true_params)
         save_two_param_planes(dirs["figures"] / f"{fig_prefix}_latent_planes.png", true_params, active_z, cfg["experiment_name"])
         summary["linear_mapping_coefficients"] = {
-            "coef": fit["coef"].tolist(),
+            "coef": np.asarray(fit["coef"]).tolist(),
             "intercept": np.asarray(fit["intercept"]).tolist(),
             "r2": fit["score"],
         }

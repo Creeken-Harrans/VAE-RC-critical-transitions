@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any, cast
 
 import matplotlib
 matplotlib.use("Agg")
@@ -48,8 +49,8 @@ def save_histogram(path: str | Path, values: np.ndarray, truth: float | None, xl
 
 def save_two_param_planes(path: str | Path, params: np.ndarray, z: np.ndarray, title: str) -> None:
     fig = plt.figure(figsize=(8, 4))
-    ax1 = fig.add_subplot(121, projection="3d")
-    ax2 = fig.add_subplot(122, projection="3d")
+    ax1 = cast(Any, fig.add_subplot(121, projection="3d"))
+    ax2 = cast(Any, fig.add_subplot(122, projection="3d"))
     ax1.scatter(xs=params[:, 0], ys=params[:, 1], zs=z[:, 0], s=10, alpha=0.7, color="purple")
     ax1.set_xlabel("rho")
     ax1.set_ylabel("beta")
