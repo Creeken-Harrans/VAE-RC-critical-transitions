@@ -59,9 +59,33 @@ def infer_latent_scan_direction(physical_slope: float, target_physical_direction
     raise ValueError(f"Unsupported target_physical_direction: {target_physical_direction}")
 
 
-def choose_single_param_base_index(params: np.ndarray) -> int:
-    # keep as-is strategy for this round: start from the largest available physical parameter in the normal training set.
-    return int(np.argmax(params[:, 0]))
+def choose_single_param_base_index(params: np.ndarray, evaluation_cfg: dict) -> int:
+    strategy = str(evaluation_cfg.get("base_param_strategy", "target_value"))
+    if strategy == "max":
+        return int(np.argmax(params[:, 0]))
+    if strategy == "target_value":
+        # repo-informed completion:
+        # use a representative healthy operating point in the normal regime rather than the extreme training edge.
+        target_value = float(
+            evaluation_cfg.get(
+                "base_param_value",
+                0.5 * (float(np.min(params[:, 0])) + float(np.max(params[:, 0]))),
+            )
+        )
+        return int(np.argmin(np.abs(params[:, 0] - target_value)))
+    raise ValueError(f"Unsupported base_param_strategy: {strategy}")
+
+
+def check_base_attractor_health(
+    rollout_fn,
+    base_z: np.ndarray,
+    detector,
+) -> bool:
+    # paper-hard constraint:
+    # only realizations that can sustain a healthy attractor at the base operating point
+    # should participate in critical-transition search.
+    base_pred = rollout_fn(base_z.copy())
+    return bool(detector(base_pred))
 
 
 def build_found_only_summary(values: np.ndarray) -> dict | None:
@@ -80,7 +104,9 @@ def summarize_scan_results(
     base_param_value: float,
     base_latent_value: float,
     base_index: int,
+    base_param_strategy: str,
     status_counts: dict[str, int],
+    require_healthy_base: bool,
 ) -> dict:
     num_found = int(status_counts.get("found", 0))
     num_miss = int(num_realizations - num_found)
@@ -101,6 +127,8 @@ def summarize_scan_results(
         "base_param_value": float(base_param_value),
         "base_latent_value": float(base_latent_value),
         "base_index": int(base_index),
+        "base_param_strategy": base_param_strategy,
+        "require_healthy_base": bool(require_healthy_base),
         "found_only_predicted_critical_point": build_found_only_summary(critical_physical_found),
         "found_only_predicted_critical_latent": build_found_only_summary(critical_latent_found),
     }
@@ -125,7 +153,8 @@ def main() -> None:
 
     if cfg["system"]["type"] in {"lorenz_single", "lorenz_partial_obs", "ks", "food_chain"}:
         params = np.asarray(data["params"], dtype=np.float64)
-        base_index = choose_single_param_base_index(params)
+        base_index = choose_single_param_base_index(params, cfg["evaluation"])
+        base_param_strategy = str(cfg["evaluation"].get("base_param_strategy", "target_value"))
         init_series = trajectories[base_index, :, : rc_cfg["warmup"]]
         base_z = mu[base_index].astype(np.float64).copy()
 
@@ -142,6 +171,7 @@ def main() -> None:
             latent_scan_direction = infer_latent_scan_direction(float(mapping_used["coef"]), target_physical_direction)
         else:
             latent_scan_direction = float(cfg["evaluation"]["scan_direction"])
+        require_healthy_base = bool(cfg["evaluation"].get("require_healthy_base", True))
 
         critical_latent_found: list[float] = []
         status_counts = {"found": 0, "no_transition_found": 0, "unhealthy_at_base": 0}
@@ -175,6 +205,14 @@ def main() -> None:
                 steps=rc_cfg["predict_steps"],
                 warmup=init_series.shape[1],
             )
+            base_is_healthy = check_base_attractor_health(
+                rollout_i,
+                base_z=base_z,
+                detector=detector,
+            )
+            if require_healthy_base and not base_is_healthy:
+                status_counts["unhealthy_at_base"] = status_counts.get("unhealthy_at_base", 0) + 1
+                continue
             result = scan_single_transition(
                 rollout_i,
                 init_series,
@@ -184,6 +222,7 @@ def main() -> None:
                 coarse_steps=cfg["evaluation"]["coarse_steps"],
                 binary_steps=cfg["evaluation"]["binary_steps"],
                 health_fn=detector,
+                base_is_healthy=base_is_healthy,
             )
             status = str(result["status"])
             status_counts[status] = status_counts.get(status, 0) + 1
@@ -218,7 +257,9 @@ def main() -> None:
             base_param_value=float(params[base_index, 0]),
             base_latent_value=float(base_z[0]),
             base_index=base_index,
+            base_param_strategy=base_param_strategy,
             status_counts=status_counts,
+            require_healthy_base=require_healthy_base,
         )
         if cfg["system"]["type"] == "ks":
             errs = np.array(

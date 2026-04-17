@@ -63,6 +63,8 @@
 - Lorenz 单参数的 reservoir critical-point evaluation 默认使用**当前 run 实际拟合得到的** `physical = a * z + b`
 - Lorenz 单参数的 latent scan direction 默认根据当前 run 的拟合斜率自动推断
 - 单参数 critical transition 搜索中，若未找到转变点，则记为 miss，不再把扫描边界伪装成临界点
+- Lorenz 单参数默认先检查 base 点是否能生成健康 attractor；base 点不健康的 realization 不参与后续临界点搜索
+- Lorenz 单参数默认从正常区内的代表工作点开始搜索，默认 `rho≈30`，而不是固定使用训练区最右端样本
 
 其中需要特别说明：
 
@@ -239,6 +241,8 @@ outputs/<experiment_name>/<mode>/
 - `base_param_value`
 - `base_latent_value`
 - `base_index`
+- `base_param_strategy`
+- `require_healthy_base`
 - `found_only_predicted_critical_point`
 
 也就是说，critical histogram 现在只使用真正找到转变点的 realization，不再把 miss 的扫描边界值混进去。

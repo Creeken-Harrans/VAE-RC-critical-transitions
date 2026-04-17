@@ -54,15 +54,24 @@ detector:
   tail_fraction: 0.25
   tail_std_threshold: 0.05
   tail_amplitude_threshold: 0.2
+  tail_energy_threshold: 0.05
+  tail_std_ratio_threshold: 0.2
+  tail_amplitude_ratio_threshold: 0.2
+  tail_windows: 3
+  tail_window_std_threshold: 0.05
+  tail_window_amplitude_threshold: 0.2
 evaluation:
   param_name: rho
   critical_truth: 23.99
+  base_param_strategy: target_value
+  base_param_value: 30.0
   paper_reference_mapping:
     coef: 4.3
     intercept: 28.5
   use_paper_reference_mapping: false
   physical_critical_direction: decrease
   auto_infer_scan_direction: true
+  require_healthy_base: true
   num_realizations: 1000
   # deprecated / ignored when auto_infer_scan_direction=true
   scan_direction: -1.0
