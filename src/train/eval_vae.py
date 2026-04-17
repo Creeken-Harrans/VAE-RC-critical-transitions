@@ -61,7 +61,12 @@ def main() -> None:
     np.savez_compressed(dirs["vae"] / "latent_stats.npz", **latent_payload)
 
     fig_prefix = cfg["figures"]["prefix"]
-    save_channel_stats(dirs["figures"] / f"{fig_prefix}_channel_stats.png", stats["var_mu"], stats["mean_sigma2"], cfg["experiment_name"])
+    save_channel_stats(
+        dirs["figures"] / f"{fig_prefix}_channel_stats.png",
+        stats["var_mu"],
+        stats["mean_sigma2"],
+        cfg["experiment_name"],
+    )
 
     summary = {
         "active_latent_channel_ids": stats["active"].tolist(),
@@ -70,7 +75,8 @@ def main() -> None:
     }
 
     if top_k == 1:
-        active_z = mu[:, stats["active"][0]]
+        active_channel = int(stats["active"][0])
+        active_z = mu[:, active_channel]
         fit = fit_single_affine(active_z, true_params[:, 0])
         line = np.asarray(fit_line_xy(true_params[:, 0], active_z)["prediction"])
         save_scatter_with_fit(
@@ -87,15 +93,28 @@ def main() -> None:
             "intercept": fit["intercept"],
             "r2": fit["score"],
         }
+        summary["active_channel"] = active_channel
+        summary["physical_from_latent"] = {
+            "coef": float(np.asarray(fit["coef"]).reshape(-1)[0]),
+            "intercept": float(fit["intercept"]),
+            "r2": float(fit["score"]),
+            "active_channel": active_channel,
+        }
     else:
         active_z = mu[:, stats["active"]]
         fit = fit_multi_affine(active_z, true_params)
-        save_two_param_planes(dirs["figures"] / f"{fig_prefix}_latent_planes.png", true_params, active_z, cfg["experiment_name"])
+        save_two_param_planes(
+            dirs["figures"] / f"{fig_prefix}_latent_planes.png",
+            true_params,
+            active_z,
+            cfg["experiment_name"],
+        )
         summary["linear_mapping_coefficients"] = {
             "coef": np.asarray(fit["coef"]).tolist(),
             "intercept": np.asarray(fit["intercept"]).tolist(),
             "r2": fit["score"],
         }
+        summary["active_channel"] = [int(v) for v in stats["active"].tolist()]
 
     save_json(dirs["vae"] / "latent_summary.json", summary)
 

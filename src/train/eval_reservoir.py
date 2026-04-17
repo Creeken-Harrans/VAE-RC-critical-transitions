@@ -1,16 +1,109 @@
 from __future__ import annotations
 
+import json
+import math
+
 import numpy as np
 from tqdm import tqdm
 
 from src.data.lorenz import LorenzConfig, simulate_lorenz
 from src.models.reservoir.esn_parameter_driven import ParameterDrivenReservoir
-from src.models.reservoir.transition_search import detect_food_chain_health, detect_ks_health, detect_lorenz_health, scan_single_transition
+from src.models.reservoir.transition_search import (
+    detect_food_chain_health,
+    detect_ks_health,
+    detect_lorenz_health,
+    scan_single_transition,
+)
 from src.train.train_vae import load_resolved_config, npz_data_path, parse_args
 from src.utils.io import get_output_dirs, save_json
 from src.utils.linear_map import apply_matrix_affine, apply_single_affine
 from src.utils.metrics import classification_rates, relative_error, summarize_hist
 from src.utils.plotting import save_classification_scatter, save_histogram
+
+
+def load_run_fitted_mapping(vae_summary: dict) -> dict[str, float]:
+    mapping = vae_summary["physical_from_latent"]
+    return {
+        "coef": float(mapping["coef"]),
+        "intercept": float(mapping["intercept"]),
+        "r2": float(mapping["r2"]),
+    }
+
+
+def resolve_single_param_mapping(cfg: dict, vae_summary: dict) -> dict[str, float | str]:
+    evaluation_cfg = cfg["evaluation"]
+    if bool(evaluation_cfg.get("use_paper_reference_mapping", False)):
+        paper_mapping = evaluation_cfg["paper_reference_mapping"]
+        return {
+            "source": "paper_reference",
+            "coef": float(paper_mapping["coef"]),
+            "intercept": float(paper_mapping["intercept"]),
+            "r2": float("nan"),
+        }
+    fitted = load_run_fitted_mapping(vae_summary)
+    return {
+        "source": "run_fitted",
+        "coef": fitted["coef"],
+        "intercept": fitted["intercept"],
+        "r2": fitted["r2"],
+    }
+
+
+def infer_latent_scan_direction(physical_slope: float, target_physical_direction: str) -> float:
+    if physical_slope == 0.0:
+        raise ValueError("Cannot infer latent scan direction from zero physical slope.")
+    if target_physical_direction == "decrease":
+        return -1.0 if physical_slope > 0 else 1.0
+    if target_physical_direction == "increase":
+        return 1.0 if physical_slope > 0 else -1.0
+    raise ValueError(f"Unsupported target_physical_direction: {target_physical_direction}")
+
+
+def choose_single_param_base_index(params: np.ndarray) -> int:
+    # keep as-is strategy for this round: start from the largest available physical parameter in the normal training set.
+    return int(np.argmax(params[:, 0]))
+
+
+def build_found_only_summary(values: np.ndarray) -> dict | None:
+    if values.size == 0:
+        return None
+    return summarize_hist(values)
+
+
+def summarize_scan_results(
+    critical_latent_found: np.ndarray,
+    critical_physical_found: np.ndarray,
+    mapping_used: dict[str, float | str],
+    latent_scan_direction: float,
+    target_physical_direction: str,
+    num_realizations: int,
+    base_param_value: float,
+    base_latent_value: float,
+    base_index: int,
+    status_counts: dict[str, int],
+) -> dict:
+    num_found = int(status_counts.get("found", 0))
+    num_miss = int(num_realizations - num_found)
+    return {
+        "mapping_used": {
+            "source": str(mapping_used["source"]),
+            "coef": float(mapping_used["coef"]),
+            "intercept": float(mapping_used["intercept"]),
+            "r2": None if math.isnan(float(mapping_used["r2"])) else float(mapping_used["r2"]),
+        },
+        "latent_scan_direction": float(latent_scan_direction),
+        "target_physical_direction": target_physical_direction,
+        "num_realizations": int(num_realizations),
+        "num_found": num_found,
+        "num_miss": num_miss,
+        "miss_rate": float(num_miss / max(num_realizations, 1)),
+        "status_counts": {k: int(v) for k, v in status_counts.items()},
+        "base_param_value": float(base_param_value),
+        "base_latent_value": float(base_latent_value),
+        "base_index": int(base_index),
+        "found_only_predicted_critical_point": build_found_only_summary(critical_physical_found),
+        "found_only_predicted_critical_latent": build_found_only_summary(critical_latent_found),
+    }
 
 
 def main() -> None:
@@ -19,6 +112,8 @@ def main() -> None:
     dirs = get_output_dirs(cfg)
     data = np.load(npz_data_path(dirs), allow_pickle=True)
     latent = np.load(dirs["vae"] / "latent_stats.npz", allow_pickle=True)
+    with open(dirs["vae"] / "latent_summary.json", "r", encoding="utf-8") as f:
+        vae_summary = json.load(f)
     reservoir = ParameterDrivenReservoir.load(dirs["reservoir"] / "reservoir.pkl")
     active = latent["active"]
     mu = latent["mu"][:, active]
@@ -29,9 +124,10 @@ def main() -> None:
     summary = {}
 
     if cfg["system"]["type"] in {"lorenz_single", "lorenz_partial_obs", "ks", "food_chain"}:
-        idx = int(np.argmax(data["params"][:, 0]))
-        init_series = trajectories[idx, :, : rc_cfg["warmup"]]
-        base_z = mu[idx].astype(np.float64).copy()
+        params = np.asarray(data["params"], dtype=np.float64)
+        base_index = choose_single_param_base_index(params)
+        init_series = trajectories[base_index, :, : rc_cfg["warmup"]]
+        base_z = mu[base_index].astype(np.float64).copy()
 
         if cfg["system"]["type"] in {"lorenz_single", "lorenz_partial_obs"}:
             detector = lambda pred: detect_lorenz_health(pred, cfg["detector"])
@@ -40,7 +136,15 @@ def main() -> None:
         else:
             detector = lambda pred: detect_food_chain_health(pred, cfg["detector"])
 
-        critical_latent = []
+        mapping_used = resolve_single_param_mapping(cfg, vae_summary)
+        target_physical_direction = str(cfg["evaluation"].get("physical_critical_direction", "decrease"))
+        if bool(cfg["evaluation"].get("auto_infer_scan_direction", False)):
+            latent_scan_direction = infer_latent_scan_direction(float(mapping_used["coef"]), target_physical_direction)
+        else:
+            latent_scan_direction = float(cfg["evaluation"]["scan_direction"])
+
+        critical_latent_found: list[float] = []
+        status_counts = {"found": 0, "no_transition_found": 0, "unhealthy_at_base": 0}
         for r_id in tqdm(
             range(cfg["evaluation"]["num_realizations"]),
             desc=f"eval_reservoir:{cfg['experiment_name']}",
@@ -59,39 +163,71 @@ def main() -> None:
                 ridge_reg=rc_cfg["ridge_reg"],
                 seed=cfg["seed"] + r_id,
             )
-            reservoir_i.fit([traj for traj in trajectories], [p for p in mu], washout=rc_cfg["washout"], train_length=rc_cfg["train_length"])
-            rollout_i = lambda z, res=reservoir_i: res.rollout(init_series, z, steps=rc_cfg["predict_steps"], warmup=init_series.shape[1])
-            z_star = scan_single_transition(
+            reservoir_i.fit(
+                [traj for traj in trajectories],
+                [p for p in mu],
+                washout=rc_cfg["washout"],
+                train_length=rc_cfg["train_length"],
+            )
+            rollout_i = lambda z, res=reservoir_i: res.rollout(
+                init_series,
+                z,
+                steps=rc_cfg["predict_steps"],
+                warmup=init_series.shape[1],
+            )
+            result = scan_single_transition(
                 rollout_i,
                 init_series,
                 base_z=base_z.copy(),
-                direction=cfg["evaluation"]["scan_direction"],
+                direction=latent_scan_direction,
                 scan_step=cfg["evaluation"]["scan_step"],
                 coarse_steps=cfg["evaluation"]["coarse_steps"],
                 binary_steps=cfg["evaluation"]["binary_steps"],
                 health_fn=detector,
             )
-            critical_latent.append(z_star)
-        critical_latent = np.array(critical_latent)
+            status = str(result["status"])
+            status_counts[status] = status_counts.get(status, 0) + 1
+            if status == "found":
+                critical_latent_found.append(float(result["z_critical"]))
 
-        mapping = cfg["evaluation"]["single_param_mapping"]
-        critical_physical = apply_single_affine(critical_latent, mapping["coef"], mapping["intercept"])
+        critical_latent_found_arr = np.asarray(critical_latent_found, dtype=np.float64)
+        critical_physical_found = apply_single_affine(
+            critical_latent_found_arr,
+            float(mapping_used["coef"]),
+            float(mapping_used["intercept"]),
+        )
+        title = (
+            cfg["experiment_name"]
+            if critical_physical_found.size > 0
+            else f"{cfg['experiment_name']} (no valid transitions found)"
+        )
         save_histogram(
             dirs["figures"] / f"{fig_prefix}_critical_hist.png",
-            critical_physical,
+            critical_physical_found,
             cfg["evaluation"]["critical_truth"],
             cfg["evaluation"]["param_name"],
-            cfg["experiment_name"],
+            title,
         )
-        summary["predicted_critical_point"] = summarize_hist(critical_physical)
+        summary = summarize_scan_results(
+            critical_latent_found=critical_latent_found_arr,
+            critical_physical_found=critical_physical_found,
+            mapping_used=mapping_used,
+            latent_scan_direction=latent_scan_direction,
+            target_physical_direction=target_physical_direction,
+            num_realizations=cfg["evaluation"]["num_realizations"],
+            base_param_value=float(params[base_index, 0]),
+            base_latent_value=float(base_z[0]),
+            base_index=base_index,
+            status_counts=status_counts,
+        )
         if cfg["system"]["type"] == "ks":
-            errs = np.array([relative_error(v, cfg["evaluation"]["critical_truth"]) for v in critical_physical])
-            summary["ks_error_within_2pct"] = float(np.mean(errs < 0.02))
-            summary["ks_error_within_10pct"] = float(np.mean(errs < 0.10))
+            errs = np.array(
+                [relative_error(v, cfg["evaluation"]["critical_truth"]) for v in critical_physical_found]
+            )
+            summary["ks_error_within_2pct"] = float(np.mean(errs < 0.02)) if errs.size > 0 else 0.0
+            summary["ks_error_within_10pct"] = float(np.mean(errs < 0.10)) if errs.size > 0 else 0.0
 
     else:
-        # paper-hard constraint: two-parameter evaluation should classify healthy points outside the training rectangle
-        # versus unhealthy points beyond the critical curve, rather than relying on a static proxy only.
         affine = np.asarray(cfg["evaluation"]["two_param_affine_matrix"], dtype=np.float64)
         z_active = mu[:, :2]
         z_min = z_active.min(axis=0)
