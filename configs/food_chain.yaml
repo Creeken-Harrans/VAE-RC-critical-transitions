@@ -1,0 +1,92 @@
+experiment_name: food_chain
+seed: 19
+paths:
+  output_root: outputs
+run:
+  mode: quick
+system:
+  type: food_chain
+  fixed_params:
+    xc: 0.4
+    yc: 2.009
+    xp: 0.08
+    yp: 2.876
+    r0: 0.16129
+    c0: 0.5
+data:
+  dt: 0.01
+  transient_time: 50.0
+  trajectory_time: 120.0
+  train_param_min: 0.97
+  train_param_max: 0.994
+  num_param_samples: 80
+vae:
+  batch_size: 100
+  lr: 0.005
+  beta_vae: 0.001
+  param_size: 5
+  hidden_channels: 32
+  prop_layers: 1
+  input_length: 300
+  validation_length: 20
+  validation_random_length: 280
+  max_epochs: 6000
+  eps: 1.0e-8
+  param_dropout_prob: 0.1
+  correlation_length: 31
+  decoder_dt: 1.0e-6
+  prop_noise: 0.0
+  discount_rate: 0.0
+reservoir:
+  nr: 900
+  d: 4
+  lambda: 2.3
+  kin: 3.6
+  kb: 0.5
+  b0: -2.2
+  alpha: 0.3
+  ridge_reg: 1.0e-6
+  washout: 50
+  warmup: 60
+  train_length: 500
+  predict_steps: 300
+eval:
+  batch_size: 128
+detector:
+  min_population_threshold: 0.02
+  std_threshold: 0.05
+evaluation:
+  param_name: kappa
+  critical_truth: 1.0
+  single_param_mapping:
+    coef: 1.0
+    intercept: 0.0
+  num_realizations: 1000
+  scan_direction: 1.0
+  scan_step: 0.002
+  coarse_steps: 80
+  binary_steps: 16
+figures:
+  prefix: fig_food_chain
+quick_demo:
+  data:
+    num_param_samples: 12
+    trajectory_time: 40.0
+    transient_time: 10.0
+  vae:
+    batch_size: 12
+    max_epochs: 8
+    validation_random_length: 80
+    input_length: 300
+    validation_length: 10
+  reservoir:
+    nr: 120
+    d: 8
+    washout: 10
+    warmup: 15
+    train_length: 80
+    predict_steps: 80
+  evaluation:
+    num_realizations: 8
+    coarse_steps: 20
+full_reproduction: {}

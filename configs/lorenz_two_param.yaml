@@ -1,0 +1,83 @@
+experiment_name: lorenz_two_param
+seed: 11
+paths:
+  output_root: outputs
+run:
+  mode: quick
+system:
+  type: lorenz_two_param
+  sigma: 10.0
+  beta: 2.6666666666666665
+data:
+  dt: 0.01
+  transient_time: 25.0
+  trajectory_time: 120.0
+  train_rho_min: 25.0
+  train_rho_max: 35.0
+  train_beta_min: 0.8
+  train_beta_max: 2.66
+  num_param_samples: 500
+vae:
+  batch_size: 100
+  lr: 0.002
+  beta_vae: 0.001
+  param_size: 5
+  hidden_channels: 32
+  prop_layers: 1
+  input_length: 300
+  validation_length: 20
+  validation_random_length: 280
+  max_epochs: 6000
+  eps: 1.0e-8
+  param_dropout_prob: 0.1
+  correlation_length: 31
+  decoder_dt: 1.0e-6
+  prop_noise: 0.0
+  discount_rate: 0.0
+reservoir:
+  nr: 800
+  d: 730
+  lambda: 0.55
+  kin: 0.08
+  kb: 0.23
+  b0: -1.9
+  alpha: 0.15
+  ridge_reg: 1.0e-6
+  washout: 30
+  warmup: 40
+  train_length: 500
+  predict_steps: 250
+eval:
+  batch_size: 128
+evaluation:
+  two_param_affine_matrix:
+    - [1.74, -2.45, 30.15]
+    - [-0.48, -0.33, 1.72]
+  healthy_region:
+    rho_min: 24.0
+    rho_max: 42.0
+    beta_min: 0.7
+    beta_max: 3.0
+  critical_curve_proxy:
+    rho_min: 24.2
+    beta_min: 0.9
+figures:
+  prefix: fig_lorenz_two_param
+quick_demo:
+  data:
+    num_param_samples: 40
+    trajectory_time: 35.0
+  vae:
+    batch_size: 20
+    max_epochs: 8
+    validation_random_length: 80
+    input_length: 300
+    validation_length: 10
+  reservoir:
+    nr: 150
+    d: 24
+    washout: 10
+    warmup: 15
+    train_length: 80
+    predict_steps: 80
+full_reproduction: {}
