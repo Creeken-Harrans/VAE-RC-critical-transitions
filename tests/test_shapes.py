@@ -2,7 +2,7 @@ from pathlib import Path
 
 import torch
 
-from src.train.common import build_vae
+from src.train.train_vae import build_vae
 from src.utils.io import resolve_config
 
 

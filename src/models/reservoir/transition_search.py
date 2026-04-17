@@ -4,6 +4,7 @@ import numpy as np
 
 
 def detect_lorenz_health(series: np.ndarray, cfg: dict) -> bool:
+    # paper-hard constraint: healthy Lorenz behavior should preserve chaotic oscillations rather than collapsing to a near-fixed state.
     std_ok = np.std(series) > cfg["std_threshold"]
     amp_ok = (np.max(series) - np.min(series)) > cfg["amplitude_threshold"]
     finite_ok = np.isfinite(series).all()
@@ -32,6 +33,7 @@ def scan_single_transition(
     binary_steps: int,
     health_fn,
 ) -> float:
+    # paper-hard constraint: coarse scan + binary refinement over latent parameter extrapolation.
     last_healthy = None
     first_unhealthy = None
     for i in range(coarse_steps + 1):

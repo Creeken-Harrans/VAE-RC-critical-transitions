@@ -29,6 +29,23 @@ def fit_single_affine(z: np.ndarray, p: np.ndarray) -> dict[str, np.ndarray | fl
     }
 
 
+def fit_line_xy(x: np.ndarray, y: np.ndarray) -> dict[str, np.ndarray | float]:
+    # evaluation-only torch fit for plotting z_hat vs physical parameter without sklearn dependency.
+    x_np = np.asarray(x).reshape(-1, 1)
+    y_np = np.asarray(y).reshape(-1, 1)
+    X = torch.tensor(np.concatenate([x_np, np.ones((x_np.shape[0], 1))], axis=1), dtype=torch.float32)
+    y_t = torch.tensor(y_np, dtype=torch.float32)
+    coef = torch.linalg.lstsq(X, y_t).solution
+    pred = (X @ coef).detach().cpu().numpy()[:, 0]
+    coef_np = coef.detach().cpu().numpy()
+    return {
+        "slope": float(coef_np[0, 0]),
+        "intercept": float(coef_np[1, 0]),
+        "prediction": pred,
+        "score": _r2_score(y_np, pred[:, None]),
+    }
+
+
 def fit_multi_affine(z: np.ndarray, p: np.ndarray) -> dict[str, np.ndarray | float]:
     z_np = np.asarray(z)
     p_np = np.asarray(p)

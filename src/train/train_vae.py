@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -69,8 +70,8 @@ def build_vae(cfg: dict, data_channels: int) -> LatentVAE:
     return model
 
 
-def npz_data_path(dirs: dict) -> str:
-    return str(dirs["data"] / "trajectories.npz")
+def npz_data_path(dirs: dict) -> Path:
+    return dirs["data"] / "trajectories.npz"
 
 
 def temporal_weights(length: int, rate: float, device: torch.device) -> torch.Tensor | None:

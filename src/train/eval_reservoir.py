@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
+from src.data.lorenz import LorenzConfig, simulate_lorenz
 from src.models.reservoir.esn_parameter_driven import ParameterDrivenReservoir
 from src.models.reservoir.transition_search import detect_food_chain_health, detect_ks_health, detect_lorenz_health, scan_single_transition
 from src.train.train_vae import load_resolved_config, npz_data_path, parse_args
@@ -38,7 +39,6 @@ def main() -> None:
         else:
             detector = lambda pred: detect_food_chain_health(pred, cfg["detector"])
 
-        rollout = lambda z: reservoir.rollout(init_series, z, steps=rc_cfg["predict_steps"], warmup=init_series.shape[1])
         critical_latent = []
         for r_id in range(cfg["evaluation"]["num_realizations"]):
             reservoir_i = ParameterDrivenReservoir(
@@ -85,23 +85,56 @@ def main() -> None:
             summary["ks_error_within_10pct"] = float(np.mean(errs < 0.10))
 
     else:
+        # paper-hard constraint: two-parameter evaluation should classify healthy points outside the training rectangle
+        # versus unhealthy points beyond the critical curve, rather than relying on a static proxy only.
         affine = np.asarray(cfg["evaluation"]["two_param_affine_matrix"], dtype=np.float64)
-        mapped = apply_matrix_affine(mu, affine)
-        rho, beta = mapped[:, 0], mapped[:, 1]
-        healthy_truth = np.logical_and.reduce(
-            [
-                rho >= cfg["evaluation"]["healthy_region"]["rho_min"],
-                rho <= cfg["evaluation"]["healthy_region"]["rho_max"],
-                beta >= cfg["evaluation"]["healthy_region"]["beta_min"],
-                beta <= cfg["evaluation"]["healthy_region"]["beta_max"],
-            ]
+        z_active = mu[:, :2]
+        z_min = z_active.min(axis=0)
+        z_max = z_active.max(axis=0)
+        margin = cfg["evaluation"]["latent_margin"]
+        grid_size = cfg["evaluation"]["grid_size"]
+        z1 = np.linspace(z_min[0] - margin, z_max[0] + margin, grid_size)
+        z2 = np.linspace(z_min[1] - margin, z_max[1] + margin, grid_size)
+        zz = np.array(np.meshgrid(z1, z2)).reshape(2, -1).T
+        mapped = apply_matrix_affine(zz, affine)
+
+        lorenz_cfg = LorenzConfig(
+            sigma=cfg["system"]["sigma"],
+            beta=cfg["system"]["beta"],
+            dt=cfg["data"]["dt"],
+            transient=cfg["data"]["transient_time"],
+            trajectory_time=cfg["data"]["trajectory_time"],
         )
-        pred_is_unhealthy = np.logical_or(rho < cfg["evaluation"]["critical_curve_proxy"]["rho_min"], beta < cfg["evaluation"]["critical_curve_proxy"]["beta_min"])
-        rates = classification_rates(pred_is_unhealthy, ~healthy_truth)
+        norm_mean = np.asarray(data["norm_mean"])
+        norm_std = np.asarray(data["norm_std"])
+        init_series = trajectories[int(np.argmax(data["params"][:, 0])), :, : rc_cfg["warmup"]]
+
+        def rollout_and_detect(z_pair: np.ndarray) -> bool:
+            pred = reservoir.rollout(init_series, z_pair, steps=rc_cfg["predict_steps"], warmup=init_series.shape[1])
+            return detect_lorenz_health(pred, cfg["detector"])
+
+        truth_healthy = []
+        pred_is_unhealthy = []
+        outside_training = []
+        for idx, (rho, beta) in enumerate(mapped):
+            is_outside = not (
+                cfg["data"]["train_rho_min"] <= rho <= cfg["data"]["train_rho_max"]
+                and cfg["data"]["train_beta_min"] <= beta <= cfg["data"]["train_beta_max"]
+            )
+            outside_training.append(is_outside)
+            raw = simulate_lorenz(float(rho), float(beta), lorenz_cfg, cfg["seed"] + idx)
+            normalized = (raw - norm_mean.squeeze(0)) / norm_std.squeeze(0)
+            truth_healthy.append(detect_lorenz_health(normalized, cfg["detector"]))
+            pred_is_unhealthy.append(not rollout_and_detect(zz[idx]))
+        truth_healthy = np.asarray(truth_healthy, dtype=bool)
+        pred_is_unhealthy = np.asarray(pred_is_unhealthy, dtype=bool)
+        outside_training = np.asarray(outside_training, dtype=bool)
+        test_mask = outside_training
+        rates = classification_rates(pred_is_unhealthy[test_mask], ~truth_healthy[test_mask])
         save_classification_scatter(
             dirs["figures"] / f"{fig_prefix}_classification.png",
-            mapped,
-            pred_is_unhealthy,
+            mapped[test_mask],
+            pred_is_unhealthy[test_mask],
             (
                 cfg["data"]["train_rho_min"],
                 cfg["data"]["train_rho_max"],
@@ -111,6 +144,7 @@ def main() -> None:
             cfg["experiment_name"],
         )
         summary.update(rates)
+        summary["num_two_param_test_points"] = int(test_mask.sum())
 
     save_json(dirs["reservoir"] / "eval_summary.json", summary)
 

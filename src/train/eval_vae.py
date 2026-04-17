@@ -8,7 +8,7 @@ from src.data.datasets import TrajectoryWindowDataset
 from src.models.vae import select_active_channels
 from src.train.train_vae import build_vae, load_resolved_config, npz_data_path, parse_args
 from src.utils.io import get_output_dirs, save_json
-from src.utils.linear_map import fit_multi_affine, fit_single_affine
+from src.utils.linear_map import fit_line_xy, fit_multi_affine, fit_single_affine
 from src.utils.plotting import save_channel_stats, save_scatter_with_fit, save_two_param_planes
 
 
@@ -63,8 +63,7 @@ def main() -> None:
     if top_k == 1:
         active_z = mu[:, stats["active"][0]]
         fit = fit_single_affine(active_z, true_params[:, 0])
-        line_coef = np.polyfit(true_params[:, 0], active_z, deg=1)
-        line = line_coef[0] * true_params[:, 0] + line_coef[1]
+        line = fit_line_xy(true_params[:, 0], active_z)["prediction"]
         save_scatter_with_fit(
             dirs["figures"] / f"{fig_prefix}_latent_vs_{cfg['evaluation']['param_name']}.png",
             true_params[:, 0],
