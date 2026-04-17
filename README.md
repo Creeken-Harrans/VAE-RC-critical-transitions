@@ -60,6 +60,9 @@
 - Lorenz 部分观测默认 `delay=8`
 - reservoir 的 `ridge_reg` 暴露为配置项
 - 双参数测试集使用 latent 平面扫描，再映射回物理参数平面做真值对照
+- Lorenz 单参数的 reservoir critical-point evaluation 默认使用**当前 run 实际拟合得到的** `physical = a * z + b`
+- Lorenz 单参数的 latent scan direction 默认根据当前 run 的拟合斜率自动推断
+- 单参数 critical transition 搜索中，若未找到转变点，则记为 miss，不再把扫描边界伪装成临界点
 
 其中需要特别说明：
 
@@ -193,6 +196,12 @@ python -m src.train.train_reservoir --config configs/lorenz_single.yaml --quick
 python -m src.train.eval_reservoir --config configs/lorenz_single.yaml --quick
 ```
 
+对于 Lorenz 单参数，如果你只改了 reservoir 评估逻辑，不需要重跑前面的训练，直接重新运行这一步即可：
+
+```bash
+python -m src.train.eval_reservoir --config configs/lorenz_single.yaml --full
+```
+
 ## 10. 输出结果
 
 运行后会在：
@@ -211,6 +220,29 @@ outputs/<experiment_name>/<mode>/
 - `reservoir/eval_summary.json`
 - `figures/*.png`
 
+其中 `vae/latent_summary.json` 现在会额外保存：
+
+- `physical_from_latent.coef`
+- `physical_from_latent.intercept`
+- `physical_from_latent.r2`
+- `active_channel`
+
+`reservoir/eval_summary.json` 在 Lorenz 单参数修复后会额外保存：
+
+- `mapping_used`
+- `latent_scan_direction`
+- `target_physical_direction`
+- `num_realizations`
+- `num_found`
+- `num_miss`
+- `miss_rate`
+- `base_param_value`
+- `base_latent_value`
+- `base_index`
+- `found_only_predicted_critical_point`
+
+也就是说，critical histogram 现在只使用真正找到转变点的 realization，不再把 miss 的扫描边界值混进去。
+
 ## 11. 生成的图
 
 至少支持以下论文对应类型：
@@ -220,6 +252,11 @@ outputs/<experiment_name>/<mode>/
 - `fig_lorenz_single_channel_stats.png`
 - `fig_lorenz_single_latent_vs_rho.png`
 - `fig_lorenz_single_critical_hist.png`
+
+注意：
+
+- `fig_lorenz_single_critical_hist.png` 现在默认基于当前 run 的拟合映射绘制
+- 配置中的论文映射只作为参考展示值保留，不再默认直接用于当前 run 的真实回映射
 
 ### KS
 

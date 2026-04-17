@@ -63,13 +63,17 @@ def generate_lorenz_single(cfg: dict) -> TrajectoryBundle:
     train_mask = np.ones(len(params), dtype=bool)
     mean, std = compute_channel_stats(trajectories, train_mask)
     trajectories = normalize_trajectories(trajectories, mean, std)
+    paper_mapping = cfg["evaluation"].get(
+        "paper_reference_mapping",
+        cfg["evaluation"].get("single_param_mapping", {}),
+    )
     return TrajectoryBundle(
         trajectories=trajectories,
         params=params,
         param_names=["rho"],
         train_mask=train_mask,
         system_type="lorenz_single",
-        meta={"paper_mapping": cfg["evaluation"]["single_param_mapping"]},
+        meta={"paper_mapping": paper_mapping},
         norm_mean=mean,
         norm_std=std,
     )
