@@ -1,0 +1,98 @@
+[
+  {
+    "base_param_value": 28.0,
+    "base_param_strategy": "target_value",
+    "num_found": 513,
+    "num_miss": 487,
+    "miss_rate": 0.487,
+    "status_counts": {
+      "found": 513,
+      "no_transition_found": 487,
+      "unhealthy_at_base": 0
+    },
+    "found_mean": 20.955129795250595,
+    "found_median": 21.449987672610575,
+    "found_std": 2.0892297106341946,
+    "artifact_dir": "/home/Creeken/Paper/数院大创赛/Code/outputs/lorenz_single/full/base_sweeps/rho_28_0"
+  },
+  {
+    "base_param_value": 29.0,
+    "base_param_strategy": "target_value",
+    "num_found": 554,
+    "num_miss": 446,
+    "miss_rate": 0.446,
+    "status_counts": {
+      "found": 554,
+      "no_transition_found": 445,
+      "unhealthy_at_base": 1
+    },
+    "found_mean": 21.396598543838696,
+    "found_median": 21.79786979876899,
+    "found_std": 2.3814355748979135,
+    "artifact_dir": "/home/Creeken/Paper/数院大创赛/Code/outputs/lorenz_single/full/base_sweeps/rho_29_0"
+  },
+  {
+    "base_param_value": 30.0,
+    "base_param_strategy": "target_value",
+    "num_found": 529,
+    "num_miss": 471,
+    "miss_rate": 0.471,
+    "status_counts": {
+      "found": 529,
+      "no_transition_found": 471,
+      "unhealthy_at_base": 0
+    },
+    "found_mean": 21.271998985957673,
+    "found_median": 21.594304489084696,
+    "found_std": 1.7038866492659637,
+    "artifact_dir": "/home/Creeken/Paper/数院大创赛/Code/outputs/lorenz_single/full/base_sweeps/rho_30_0"
+  },
+  {
+    "base_param_value": 31.0,
+    "base_param_strategy": "target_value",
+    "num_found": 474,
+    "num_miss": 526,
+    "miss_rate": 0.526,
+    "status_counts": {
+      "found": 474,
+      "no_transition_found": 524,
+      "unhealthy_at_base": 2
+    },
+    "found_mean": 21.062379204393114,
+    "found_median": 21.209795484820503,
+    "found_std": 2.1088074790875657,
+    "artifact_dir": "/home/Creeken/Paper/数院大创赛/Code/outputs/lorenz_single/full/base_sweeps/rho_31_0"
+  },
+  {
+    "base_param_value": 32.0,
+    "base_param_strategy": "target_value",
+    "num_found": 493,
+    "num_miss": 507,
+    "miss_rate": 0.507,
+    "status_counts": {
+      "found": 493,
+      "no_transition_found": 505,
+      "unhealthy_at_base": 2
+    },
+    "found_mean": 21.31866944847446,
+    "found_median": 21.296972011032523,
+    "found_std": 2.3997114666668393,
+    "artifact_dir": "/home/Creeken/Paper/数院大创赛/Code/outputs/lorenz_single/full/base_sweeps/rho_32_0"
+  },
+  {
+    "base_param_value": 33.0,
+    "base_param_strategy": "target_value",
+    "num_found": 517,
+    "num_miss": 483,
+    "miss_rate": 0.483,
+    "status_counts": {
+      "found": 517,
+      "no_transition_found": 483,
+      "unhealthy_at_base": 0
+    },
+    "found_mean": 21.43704300736307,
+    "found_median": 21.56516420308736,
+    "found_std": 2.0361644308554965,
+    "artifact_dir": "/home/Creeken/Paper/数院大创赛/Code/outputs/lorenz_single/full/base_sweeps/rho_33_0"
+  }
+]
