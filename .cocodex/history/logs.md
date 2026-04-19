@@ -932,3 +932,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[] -> [\"None blocking for the n=1000 run.\"]"
 - strategist_round_id: "\"round-0003\" -> \"round-0004\""
 - updated_at: "\"2026-04-19T18:26:00+00:00\" -> \"2026-04-19T18:27:15+00:00\""
+
+## 2026-04-19T19:35:17.108752+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_final_n1000_ratio0375"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_n1000_raw.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "n1000 run completed under accepted gate; finish remains no because raw result failed final quality"
+- remaining_questions: ["safe-regime filtering/tuning decision"]
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "n1000_raw_gate_failed"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T193517108695Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_expansion_n100_ratio0375\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_final_n1000_ratio0375\"]"
+- implementer_last_checkin_at: "\"2026-04-19T18:26:00+00:00\" -> \"2026-04-19T19:35:17+00:00\""
+- implementer_last_question_disposition: "\"paper mapping via temporary exact configs; requested base 30.0 realizes nearest grid point 29.936708450317383\" -> \"n1000 run completed under accepted gate; finish remains no because raw result failed final quality\""
+- implementer_lease_expires_at: "\"2026-04-19T18:41:00+00:00\" -> \"2026-04-19T19:50:17+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"n100_ratio0375_pass_core_gate\" -> \"n1000_raw_gate_failed\""
+- pending_questions: "[\"None blocking for the n=1000 run.\"] -> [\"safe-regime filtering/tuning decision\"]"
+- updated_at: "\"2026-04-19T18:27:15+00:00\" -> \"2026-04-19T19:35:17+00:00\""
