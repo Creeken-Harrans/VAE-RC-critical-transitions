@@ -1062,3 +1062,31 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - implementer_lease_expires_at: "\"2026-04-19T23:10:46+00:00\" -> \"2026-04-19T23:24:41+00:00\""
 - last_implementer_status: "\"round10_coarse_rejected_left_tail\" -> \"round11_train_length_rejected\""
 - updated_at: "\"2026-04-19T22:55:46+00:00\" -> \"2026-04-19T23:09:41+00:00\""
+
+## 2026-04-19T23:12:09.073724+00:00 `record-strategist`
+
+- entry_type: control-plane
+- command: record-strategist
+- result: success
+
+### Inputs
+- decision_override: null
+- finish_vote_check: "no"
+- from_file: "/tmp/cocodex_strategist_round12.md"
+- pending_questions: null
+- phase: null
+- text_supplied: false
+
+### Outputs
+- stdout: ".cocodex/strategist_latest.md"
+- strategist_latest_path: ".cocodex/strategist_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T231209073650Z_strategist.md", ".cocodex/strategist_latest.md"]
+
+### Session Changes
+- implementer_response_pending: "false -> true"
+- last_strategist_decision: "\"proceed_to_n1000_with_ratio0.375_predict400\" -> \"approve_n30_ridge_sweep_eval_reservoir_only\""
+- pending_questions: "[\"safe-regime filtering/tuning decision\"] -> [\"none blocking\"]"
+- strategist_round_id: "\"round-0004\" -> \"round-0005\""
+- updated_at: "\"2026-04-19T23:09:41+00:00\" -> \"2026-04-19T23:12:09+00:00\""
