@@ -1200,3 +1200,31 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - implementer_response_pending: "true -> false"
 - last_implementer_status: "\"round12_ridge_promising_needs_center_refine\" -> \"round13_ratio_near_miss_needs_lower_ratio_extension\""
 - updated_at: "\"2026-04-19T23:21:30+00:00\" -> \"2026-04-19T23:27:40+00:00\""
+
+## 2026-04-19T23:28:43.723435+00:00 `record-strategist`
+
+- entry_type: control-plane
+- command: record-strategist
+- result: success
+
+### Inputs
+- decision_override: null
+- finish_vote_check: "no"
+- from_file: "/tmp/cocodex_strategist_round14.md"
+- pending_questions: null
+- phase: null
+- text_supplied: false
+
+### Outputs
+- stdout: ".cocodex/strategist_latest.md"
+- strategist_latest_path: ".cocodex/strategist_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T232843723338Z_strategist.md", ".cocodex/strategist_latest.md"]
+
+### Session Changes
+- finish_gate_status: "\"blocked\" -> \"open\""
+- implementer_response_pending: "false -> true"
+- last_strategist_decision: "\"accept_round13_ridge1e-4_ratio_refinement_before_n100\" -> \"approve_round14_lower_ratio_extension_with_floor_0p2875\""
+- strategist_round_id: "\"round-0006\" -> \"round-0007\""
+- updated_at: "\"2026-04-19T23:27:40+00:00\" -> \"2026-04-19T23:28:43+00:00\""
