@@ -43,15 +43,15 @@ reservoir:
   alpha: 0.7
   ridge_reg: 1.0e-6
   washout: 30
-  warmup: 40
+  warmup: 80
   train_length: 500
-  predict_steps: 300
+  predict_steps: 800
 eval:
   batch_size: 128
 detector:
   std_threshold: 0.2
   amplitude_threshold: 0.8
-  tail_fraction: 0.25
+  tail_fraction: 0.4
   tail_std_threshold: 0.05
   tail_amplitude_threshold: 0.2
   tail_energy_threshold: 0.05
