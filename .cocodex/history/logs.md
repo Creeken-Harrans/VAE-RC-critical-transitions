@@ -1090,3 +1090,46 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[\"safe-regime filtering/tuning decision\"] -> [\"none blocking\"]"
 - strategist_round_id: "\"round-0004\" -> \"round-0005\""
 - updated_at: "\"2026-04-19T23:09:41+00:00\" -> \"2026-04-19T23:12:09+00:00\""
+
+## 2026-04-19T23:20:11.517130+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_ridge_round12", "scripts/experiment_round12_ridge.py"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round12.md"
+- phase: "implementation"
+- proposed_alternative: "run ridge=1e-4 ratio refinement n30 at 0.325 and 0.35 before n100"
+- question_disposition: null
+- remaining_questions: null
+- response_rationale: "ridge=1e-4 failed median gate slightly but solved right tail; refine ratio before expanding"
+- response_to_strategist: "challenge"
+- status: "round12_ridge_promising_needs_center_refine"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T232011517064Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_train_length_round11\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_ridge_round12\", \"scripts/experiment_round12_ridge.py\"]"
+- dispute_active: "false -> true"
+- dispute_round_count: "0 -> 1"
+- finish_gate_status: "\"open\" -> \"blocked\""
+- implementer_last_checkin_at: "\"2026-04-19T23:09:41+00:00\" -> \"2026-04-19T23:20:11+00:00\""
+- implementer_last_proposed_alternative: "\"\" -> \"run ridge=1e-4 ratio refinement n30 at 0.325 and 0.35 before n100\""
+- implementer_last_question_disposition: "\"n1000 run completed under accepted gate; finish remains no because raw result failed final quality\" -> \"\""
+- implementer_last_response_mode: "\"accept\" -> \"challenge\""
+- implementer_last_response_rationale: "\"\" -> \"ridge=1e-4 failed median gate slightly but solved right tail; refine ratio before expanding\""
+- implementer_lease_expires_at: "\"2026-04-19T23:24:41+00:00\" -> \"2026-04-19T23:35:11+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round11_train_length_rejected\" -> \"round12_ridge_promising_needs_center_refine\""
+- last_known_phase: "\"implementation\" -> \"dispute\""
+- updated_at: "\"2026-04-19T23:12:09+00:00\" -> \"2026-04-19T23:20:11+00:00\""
