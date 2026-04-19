@@ -16,6 +16,7 @@ data:
   train_param_min: 25.0
   train_param_max: 35.0
   num_param_samples: 80
+  param_sampling_strategy: linspace
 vae:
   batch_size: 100
   lr: 0.002

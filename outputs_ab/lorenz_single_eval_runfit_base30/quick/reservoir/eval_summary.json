@@ -1,0 +1,26 @@
+{
+  "base_index": 5,
+  "base_latent_value": 0.0834130048751831,
+  "base_param_strategy": "target_value",
+  "base_param_value": 29.545454025268555,
+  "found_only_predicted_critical_latent": null,
+  "found_only_predicted_critical_point": null,
+  "latent_scan_direction": 1.0,
+  "mapping_used": {
+    "coef": -0.5055208206176758,
+    "intercept": 30.063512802124023,
+    "r2": 4.380941390991211e-05,
+    "source": "run_fitted"
+  },
+  "miss_rate": 1.0,
+  "num_found": 0,
+  "num_miss": 8,
+  "num_realizations": 8,
+  "require_healthy_base": true,
+  "status_counts": {
+    "found": 0,
+    "no_transition_found": 8,
+    "unhealthy_at_base": 0
+  },
+  "target_physical_direction": "decrease"
+}

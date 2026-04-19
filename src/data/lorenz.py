@@ -48,6 +48,21 @@ def simulate_lorenz(rho: float, beta: float, cfg: LorenzConfig, seed: int) -> np
     return traj[list(cfg.observed_indices)]
 
 
+def sample_single_params(data_cfg: dict, seed: int) -> np.ndarray:
+    strategy = str(data_cfg.get("param_sampling_strategy", "linspace"))
+    low = float(data_cfg["train_param_min"])
+    high = float(data_cfg["train_param_max"])
+    size = int(data_cfg["num_param_samples"])
+    if strategy == "linspace":
+        values = np.linspace(low, high, size, dtype=np.float64)
+    elif strategy == "uniform_random":
+        rng = np.random.default_rng(seed)
+        values = np.sort(rng.uniform(low, high, size=size))
+    else:
+        raise ValueError(f"Unsupported Lorenz single param_sampling_strategy: {strategy}")
+    return values.reshape(-1, 1)
+
+
 def generate_lorenz_single(cfg: dict) -> TrajectoryBundle:
     data_cfg = cfg["data"]
     sys_cfg = LorenzConfig(
@@ -58,7 +73,7 @@ def generate_lorenz_single(cfg: dict) -> TrajectoryBundle:
         trajectory_time=data_cfg["trajectory_time"],
         observed_indices=tuple(cfg["system"].get("observed_indices", [0, 1, 2])),
     )
-    params = np.linspace(data_cfg["train_param_min"], data_cfg["train_param_max"], data_cfg["num_param_samples"]).reshape(-1, 1)
+    params = sample_single_params(data_cfg, cfg["seed"])
     trajectories = np.stack([simulate_lorenz(float(rho), sys_cfg.beta, sys_cfg, cfg["seed"] + i) for i, (rho,) in enumerate(params)], axis=0)
     train_mask = np.ones(len(params), dtype=bool)
     mean, std = compute_channel_stats(trajectories, train_mask)
