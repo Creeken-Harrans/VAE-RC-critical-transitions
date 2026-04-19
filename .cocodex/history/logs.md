@@ -465,3 +465,68 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - implementer_last_checkin_at: "\"2026-04-19T16:48:43+00:00\" -> \"2026-04-19T16:57:05+00:00\""
 - implementer_lease_expires_at: "\"2026-04-19T17:03:43+00:00\" -> \"2026-04-19T17:12:05+00:00\""
 - updated_at: "\"2026-04-19T16:48:43+00:00\" -> \"2026-04-19T16:57:05+00:00\""
+
+## 2026-04-19T17:12:14.339777+00:00 `record-strategist`
+
+- entry_type: control-plane
+- command: record-strategist
+- result: success
+
+### Inputs
+- decision_override: null
+- finish_vote_check: "no"
+- from_file: "/tmp/cocodex_strategist_round3.md"
+- pending_questions: null
+- phase: "implementation"
+- text_supplied: false
+
+### Outputs
+- stdout: ".cocodex/strategist_latest.md"
+- strategist_latest_path: ".cocodex/strategist_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T171214339717Z_strategist.md", ".cocodex/strategist_latest.md"]
+
+### Session Changes
+- implementer_response_pending: "false -> true"
+- last_strategist_decision: "\"接受实现者的有效异议的一半：`src/data/lorenz.py` 中保留 `uniform_random` 能力是合理的，但当前不应把 `configs/lorenz_single.yaml` 默认值锁定到该策略。下一阶段先做受控 A/B：优先诊断 `configs/lorenz_single.yaml` 与 `src/train/eval_reservoir.py` 的映射/基点/健康过滤影响，同时把 `data.param_sampling_strategy` 作为并列对照变量而不是默认定案。\" -> \"Allow eval_reservoir-only experimentation to continue. Prioritize ratio2p0_coarse50 n=30 validation. Do not rerun VAE, data generation, main reservoir training, or full reproduce. Keep base_param_value requested at 30.0, use paper_reference_mapping=true for this experiment chain, and record each config/result step in git. Do not expand to n=100 unless n=30 passes the stated gate; do not expand to n=1000 unless n=100 passes its gate.\""
+- pending_questions: "[\"在仅切换 `use_paper_reference_mapping=true`、其余不变时，`eval_summary.json` 的 `mapping_used`、`status_counts`、`miss_rate` 如何变化，左尾是否明显收缩？\", \"在固定更优评估设置后，`linspace` vs `uniform_random` 的差异主要体现为峰宽变化，还是峰位/左尾也显著变化？\"] -> [\"None blocking. Continue automatically under the gates above.\"]"
+- strategist_round_id: "\"round-0002\" -> \"round-0003\""
+- updated_at: "\"2026-04-19T16:57:05+00:00\" -> \"2026-04-19T17:12:14+00:00\""
+
+## 2026-04-19T17:12:33.643893+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_sweeps_round2", "outputs_abfull/eval_layer_expansion/ratio2p0_coarse50_n30"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round3.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "paper mapping via temporary exact configs; requested base 30.0 realizes nearest grid point 29.936708450317383"
+- remaining_questions: []
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "n30_gate_failed_right_tail"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T171233643830Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/eval_layer_sweeps\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_sweeps_round2\", \"outputs_abfull/eval_layer_expansion/ratio2p0_coarse50_n30\"]"
+- implementer_last_checkin_at: "\"2026-04-19T16:57:05+00:00\" -> \"2026-04-19T17:12:33+00:00\""
+- implementer_last_question_disposition: "\"\" -> \"paper mapping via temporary exact configs; requested base 30.0 realizes nearest grid point 29.936708450317383\""
+- implementer_lease_expires_at: "\"2026-04-19T17:12:05+00:00\" -> \"2026-04-19T17:27:33+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"\" -> \"n30_gate_failed_right_tail\""
+- pending_questions: "[\"None blocking. Continue automatically under the gates above.\"] -> []"
+- updated_at: "\"2026-04-19T17:12:14+00:00\" -> \"2026-04-19T17:12:33+00:00\""
