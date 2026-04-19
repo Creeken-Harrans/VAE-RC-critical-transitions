@@ -108,6 +108,7 @@ def summarize_scan_results(
     base_param_strategy: str,
     status_counts: dict[str, int],
     require_healthy_base: bool,
+    coarse_unhealthy_streak: int,
     realization_records: list[dict],
 ) -> dict:
     num_found = int(status_counts.get("found", 0))
@@ -134,6 +135,7 @@ def summarize_scan_results(
         "base_index": int(base_index),
         "base_param_strategy": base_param_strategy,
         "require_healthy_base": bool(require_healthy_base),
+        "coarse_unhealthy_streak": int(coarse_unhealthy_streak),
         "found_only_predicted_critical_point": build_found_only_summary(critical_physical_found),
         "found_only_predicted_critical_latent": build_found_only_summary(critical_latent_found),
         "realizations": realization_records,
@@ -245,6 +247,7 @@ def main() -> None:
                 binary_steps=cfg["evaluation"]["binary_steps"],
                 health_fn=detector,
                 base_is_healthy=base_is_healthy,
+                coarse_unhealthy_streak=cfg["evaluation"].get("coarse_unhealthy_streak", 1),
             )
             status = str(result["status"])
             status_counts[status] = status_counts.get(status, 0) + 1
@@ -304,6 +307,7 @@ def main() -> None:
             base_param_strategy=base_param_strategy,
             status_counts=status_counts,
             require_healthy_base=require_healthy_base,
+            coarse_unhealthy_streak=cfg["evaluation"].get("coarse_unhealthy_streak", 1),
             realization_records=realization_records,
         )
         if cfg["system"]["type"] == "ks":

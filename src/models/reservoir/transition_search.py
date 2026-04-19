@@ -97,12 +97,17 @@ def scan_single_transition(
     binary_steps: int,
     health_fn,
     base_is_healthy: bool | None = None,
+    coarse_unhealthy_streak: int = 1,
 ) -> dict[str, float | str]:
     # paper-hard constraint:
     # coarse scan + binary refinement over latent parameter extrapolation.
     del initial_series
     last_healthy = None
     first_unhealthy = None
+    candidate_last_healthy = None
+    candidate_first_unhealthy = None
+    unhealthy_run = 0
+    required_unhealthy_run = max(1, int(coarse_unhealthy_streak))
 
     for i in range(coarse_steps + 1):
         z = base_z.copy()
@@ -118,9 +123,18 @@ def scan_single_transition(
 
         if healthy:
             last_healthy = z[0]
-        elif first_unhealthy is None:
-            first_unhealthy = z[0]
-            break
+            candidate_last_healthy = None
+            candidate_first_unhealthy = None
+            unhealthy_run = 0
+        else:
+            if unhealthy_run == 0:
+                candidate_last_healthy = last_healthy
+                candidate_first_unhealthy = z[0]
+            unhealthy_run += 1
+            if unhealthy_run >= required_unhealthy_run and first_unhealthy is None:
+                last_healthy = candidate_last_healthy
+                first_unhealthy = candidate_first_unhealthy
+                break
 
     if first_unhealthy is None:
         return {"status": "no_transition_found", "z_critical": float("nan")}

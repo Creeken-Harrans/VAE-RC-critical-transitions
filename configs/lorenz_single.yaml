@@ -78,6 +78,7 @@ evaluation:
   scan_direction: -1.0
   scan_step: 0.02
   coarse_steps: 150
+  coarse_unhealthy_streak: 1
   binary_steps: 16
 figures:
   prefix: fig_lorenz_single
