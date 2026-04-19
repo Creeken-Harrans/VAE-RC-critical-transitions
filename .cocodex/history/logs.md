@@ -1228,3 +1228,44 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - last_strategist_decision: "\"accept_round13_ridge1e-4_ratio_refinement_before_n100\" -> \"approve_round14_lower_ratio_extension_with_floor_0p2875\""
 - strategist_round_id: "\"round-0006\" -> \"round-0007\""
 - updated_at: "\"2026-04-19T23:27:40+00:00\" -> \"2026-04-19T23:28:43+00:00\""
+
+## 2026-04-19T23:33:34.864890+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_lower_ratio_round14", "scripts/experiment_round14_lower_ratio.py"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round14.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Accepted Strategist tiny median margin rule; selected ratio0.300 for n100 and stopped further ratio descent."
+- remaining_questions: []
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round14_select_ratio0300_for_n100"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T233334864829Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_ridge_ratio_round13\", \"scripts/experiment_round13_ridge_ratio.py\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_lower_ratio_round14\", \"scripts/experiment_round14_lower_ratio.py\"]"
+- implementer_last_checkin_at: "\"2026-04-19T23:27:40+00:00\" -> \"2026-04-19T23:33:34+00:00\""
+- implementer_last_proposed_alternative: "\"run same-knob lower-ratio extension at 0.300 and 0.2875 before pivot or n100\" -> \"\""
+- implementer_last_question_disposition: "\"\" -> \"Accepted Strategist tiny median margin rule; selected ratio0.300 for n100 and stopped further ratio descent.\""
+- implementer_last_response_mode: "\"challenge\" -> \"accept\""
+- implementer_last_response_rationale: "\"no round13 ratio passed median gate, but lower ratio improved center while preserving clean tails\" -> \"\""
+- implementer_lease_expires_at: "\"2026-04-19T23:42:40+00:00\" -> \"2026-04-19T23:48:34+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round13_ratio_near_miss_needs_lower_ratio_extension\" -> \"round14_select_ratio0300_for_n100\""
+- last_known_phase: "\"dispute\" -> \"implementation\""
+- pending_questions: "[\"none blocking\"] -> []"
+- updated_at: "\"2026-04-19T23:28:43+00:00\" -> \"2026-04-19T23:33:34+00:00\""
