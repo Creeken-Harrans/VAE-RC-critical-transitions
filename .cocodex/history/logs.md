@@ -904,3 +904,31 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - implementer_lease_expires_at: "\"2026-04-19T18:32:58+00:00\" -> \"2026-04-19T18:41:00+00:00\""
 - last_implementer_status: "\"n100_ratio035_failed_found\" -> \"n100_ratio0375_pass_core_gate\""
 - updated_at: "\"2026-04-19T18:17:58+00:00\" -> \"2026-04-19T18:26:00+00:00\""
+
+## 2026-04-19T18:27:15.428485+00:00 `record-strategist`
+
+- entry_type: control-plane
+- command: record-strategist
+- result: success
+
+### Inputs
+- decision_override: null
+- finish_vote_check: "no"
+- from_file: "/tmp/cocodex_strategist_n1000_gate.md"
+- pending_questions: null
+- phase: "implementation"
+- text_supplied: false
+
+### Outputs
+- stdout: ".cocodex/strategist_latest.md"
+- strategist_latest_path: ".cocodex/strategist_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T182715428424Z_strategist.md", ".cocodex/strategist_latest.md"]
+
+### Session Changes
+- implementer_response_pending: "false -> true"
+- last_strategist_decision: "\"Allow eval_reservoir-only experimentation to continue. Prioritize ratio2p0_coarse50 n=30 validation. Do not rerun VAE, data generation, main reservoir training, or full reproduce. Keep base_param_value requested at 30.0, use paper_reference_mapping=true for this experiment chain, and record each config/result step in git. Do not expand to n=100 unless n=30 passes the stated gate; do not expand to n=1000 unless n=100 passes its gate.\" -> \"proceed_to_n1000_with_ratio0.375_predict400\""
+- pending_questions: "[] -> [\"None blocking for the n=1000 run.\"]"
+- strategist_round_id: "\"round-0003\" -> \"round-0004\""
+- updated_at: "\"2026-04-19T18:26:00+00:00\" -> \"2026-04-19T18:27:15+00:00\""
