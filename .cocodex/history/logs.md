@@ -310,3 +310,125 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - implementer_lease_expires_at: "\"2026-04-19T16:26:16+00:00\" -> \"2026-04-19T16:30:54+00:00\""
 - implementer_response_pending: "true -> false"
 - updated_at: "\"2026-04-19T16:13:58+00:00\" -> \"2026-04-19T16:15:54+00:00\""
+
+## 2026-04-19T16:30:34.218413+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- changed_files: ["outputs_abfull/lorenz_single_linspace_ab/full/data/trajectories.npz", "outputs_abfull/lorenz_single_linspace_ab/full/vae/best.tar", "outputs_abfull/lorenz_single_linspace_ab/full/vae/latent_summary.json", "outputs_abfull/lorenz_single_linspace_ab/full/reservoir/reservoir.pkl", "outputs_abfull/lorenz_single_linspace_ab/full/figures/fig_lorenz_single_critical_hist.png"]
+- finish_vote: "no"
+- from_file: "/tmp/implementer_report_full_base30.md"
+- phase: "implementation"
+- proposed_alternative: null
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: null
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T163034218355Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"configs/lorenz_single.yaml\"] -> [\"outputs_abfull/lorenz_single_linspace_ab/full/data/trajectories.npz\", \"outputs_abfull/lorenz_single_linspace_ab/full/vae/best.tar\", \"outputs_abfull/lorenz_single_linspace_ab/full/vae/latent_summary.json\", \"outputs_abfull/lorenz_single_linspace_ab/full/reservoir/reservoir.pkl\", \"outputs_abfull/lorenz_single_linspace_ab/full/figures/fig_lorenz_single_critical_hist.png\"]"
+- implementer_last_checkin_at: "\"2026-04-19T16:15:54+00:00\" -> \"2026-04-19T16:30:34+00:00\""
+- implementer_lease_expires_at: "\"2026-04-19T16:30:54+00:00\" -> \"2026-04-19T16:45:34+00:00\""
+- updated_at: "\"2026-04-19T16:15:54+00:00\" -> \"2026-04-19T16:30:34+00:00\""
+
+## 2026-04-19T16:36:58.214286+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- changed_files: ["outputs_abfull/lorenz_single_linspace_ab/full/reservoir/eval_summary.json", "outputs_abfull/lorenz_single_linspace_ab/full/figures/fig_lorenz_single_critical_hist.png"]
+- finish_vote: "no"
+- from_file: "/tmp/implementer_report_base29_compare.md"
+- phase: "implementation"
+- proposed_alternative: null
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: null
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T163658214227Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/lorenz_single_linspace_ab/full/data/trajectories.npz\", \"outputs_abfull/lorenz_single_linspace_ab/full/vae/best.tar\", \"outputs_abfull/lorenz_single_linspace_ab/full/vae/latent_summary.json\", \"outputs_abfull/lorenz_single_linspace_ab/full/reservoir/reservoir.pkl\", \"outputs_abfull/lorenz_single_linspace_ab/full/figures/fig_lorenz_single_critical_hist.png\"] -> [\"outputs_abfull/lorenz_single_linspace_ab/full/reservoir/eval_summary.json\", \"outputs_abfull/lorenz_single_linspace_ab/full/figures/fig_lorenz_single_critical_hist.png\"]"
+- implementer_last_checkin_at: "\"2026-04-19T16:30:34+00:00\" -> \"2026-04-19T16:36:58+00:00\""
+- implementer_lease_expires_at: "\"2026-04-19T16:45:34+00:00\" -> \"2026-04-19T16:51:58+00:00\""
+- updated_at: "\"2026-04-19T16:30:34+00:00\" -> \"2026-04-19T16:36:58+00:00\""
+
+## 2026-04-19T16:38:29.244466+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- changed_files: []
+- finish_vote: "no"
+- from_file: "/tmp/implementer_report_user_base30.md"
+- phase: "implementation"
+- proposed_alternative: null
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: null
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T163829244398Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/lorenz_single_linspace_ab/full/reservoir/eval_summary.json\", \"outputs_abfull/lorenz_single_linspace_ab/full/figures/fig_lorenz_single_critical_hist.png\"] -> []"
+- implementer_last_checkin_at: "\"2026-04-19T16:36:58+00:00\" -> \"2026-04-19T16:38:29+00:00\""
+- implementer_lease_expires_at: "\"2026-04-19T16:51:58+00:00\" -> \"2026-04-19T16:53:29+00:00\""
+- updated_at: "\"2026-04-19T16:36:58+00:00\" -> \"2026-04-19T16:38:29+00:00\""
+
+## 2026-04-19T16:48:43.708979+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: []
+- finish_vote: "no"
+- from_file: "/tmp/implementer_report_eval_only_directive.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: null
+- remaining_questions: null
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: null
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T164843708912Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- implementer_last_checkin_at: "\"2026-04-19T16:38:29+00:00\" -> \"2026-04-19T16:48:43+00:00\""
+- implementer_lease_expires_at: "\"2026-04-19T16:53:29+00:00\" -> \"2026-04-19T17:03:43+00:00\""
+- updated_at: "\"2026-04-19T16:38:29+00:00\" -> \"2026-04-19T16:48:43+00:00\""
