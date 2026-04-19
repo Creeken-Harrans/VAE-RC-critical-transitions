@@ -969,3 +969,62 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - last_implementer_status: "\"n100_ratio0375_pass_core_gate\" -> \"n1000_raw_gate_failed\""
 - pending_questions: "[\"None blocking for the n=1000 run.\"] -> [\"safe-regime filtering/tuning decision\"]"
 - updated_at: "\"2026-04-19T18:27:15+00:00\" -> \"2026-04-19T19:35:17+00:00\""
+
+## 2026-04-19T22:41:56.939159+00:00 `update-brief`
+
+- entry_type: control-plane
+- command: update-brief
+- result: success
+
+### Inputs
+- from_file: "/tmp/cocodex_brief_continue.md"
+- objective: null
+- pending_questions: null
+- phase: "implementation"
+- relevant_paths: ["src/train/eval_reservoir.py", "src/models/reservoir/transition_search.py", "configs/lorenz_single.yaml", "outputs_abfull"]
+- text_supplied: false
+
+### Outputs
+- mission_brief_path: ".cocodex/mission_brief.md"
+- stdout: ".cocodex/mission_brief.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T224156939099Z_brief.md", ".cocodex/mission_brief.md"]
+
+### Session Changes
+- relevant_paths: "[\"src/data/lorenz.py\", \"src/train/eval_reservoir.py\", \"src/models/reservoir/transition_search.py\", \"src/utils/plotting.py\", \"configs/lorenz_single.yaml\", \"2501.01579v1.pdf\"] -> [\"src/train/eval_reservoir.py\", \"src/models/reservoir/transition_search.py\", \"configs/lorenz_single.yaml\", \"outputs_abfull\"]"
+- updated_at: "\"2026-04-19T19:35:17+00:00\" -> \"2026-04-19T22:41:56+00:00\""
+
+## 2026-04-19T22:55:46.637256+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_coarse_expand_round10"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round10_coarse.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: null
+- remaining_questions: null
+- response_rationale: null
+- response_to_strategist: null
+- status: "round10_coarse_rejected_left_tail"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T225546637194Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_final_n1000_ratio0375\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_coarse_expand_round10\"]"
+- implementer_last_checkin_at: "\"2026-04-19T19:35:17+00:00\" -> \"2026-04-19T22:55:46+00:00\""
+- implementer_lease_expires_at: "\"2026-04-19T19:50:17+00:00\" -> \"2026-04-19T23:10:46+00:00\""
+- last_implementer_status: "\"n1000_raw_gate_failed\" -> \"round10_coarse_rejected_left_tail\""
+- updated_at: "\"2026-04-19T22:41:56+00:00\" -> \"2026-04-19T22:55:46+00:00\""
