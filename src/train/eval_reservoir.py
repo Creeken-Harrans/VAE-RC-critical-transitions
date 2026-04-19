@@ -102,11 +102,13 @@ def summarize_scan_results(
     target_physical_direction: str,
     num_realizations: int,
     base_param_value: float,
+    requested_base_param_value: float | None,
     base_latent_value: float,
     base_index: int,
     base_param_strategy: str,
     status_counts: dict[str, int],
     require_healthy_base: bool,
+    realization_records: list[dict],
 ) -> dict:
     num_found = int(status_counts.get("found", 0))
     num_miss = int(num_realizations - num_found)
@@ -125,12 +127,16 @@ def summarize_scan_results(
         "miss_rate": float(num_miss / max(num_realizations, 1)),
         "status_counts": {k: int(v) for k, v in status_counts.items()},
         "base_param_value": float(base_param_value),
+        "requested_base_param_value": None
+        if requested_base_param_value is None
+        else float(requested_base_param_value),
         "base_latent_value": float(base_latent_value),
         "base_index": int(base_index),
         "base_param_strategy": base_param_strategy,
         "require_healthy_base": bool(require_healthy_base),
         "found_only_predicted_critical_point": build_found_only_summary(critical_physical_found),
         "found_only_predicted_critical_latent": build_found_only_summary(critical_latent_found),
+        "realizations": realization_records,
     }
 
 
@@ -155,6 +161,11 @@ def main() -> None:
         params = np.asarray(data["params"], dtype=np.float64)
         base_index = choose_single_param_base_index(params, cfg["evaluation"])
         base_param_strategy = str(cfg["evaluation"].get("base_param_strategy", "target_value"))
+        requested_base_param_value = (
+            float(cfg["evaluation"]["base_param_value"])
+            if base_param_strategy == "target_value" and "base_param_value" in cfg["evaluation"]
+            else None
+        )
         init_series = trajectories[base_index, :, : rc_cfg["warmup"]]
         base_z = mu[base_index].astype(np.float64).copy()
 
@@ -174,6 +185,7 @@ def main() -> None:
         require_healthy_base = bool(cfg["evaluation"].get("require_healthy_base", True))
 
         critical_latent_found: list[float] = []
+        realization_records: list[dict] = []
         status_counts = {"found": 0, "no_transition_found": 0, "unhealthy_at_base": 0}
         for r_id in tqdm(
             range(cfg["evaluation"]["num_realizations"]),
@@ -212,6 +224,16 @@ def main() -> None:
             )
             if require_healthy_base and not base_is_healthy:
                 status_counts["unhealthy_at_base"] = status_counts.get("unhealthy_at_base", 0) + 1
+                realization_records.append(
+                    {
+                        "realization": int(r_id),
+                        "seed": int(cfg["seed"] + r_id),
+                        "status": "unhealthy_at_base",
+                        "base_is_healthy": bool(base_is_healthy),
+                        "critical_latent": None,
+                        "critical_physical": None,
+                    }
+                )
                 continue
             result = scan_single_transition(
                 rollout_i,
@@ -227,7 +249,28 @@ def main() -> None:
             status = str(result["status"])
             status_counts[status] = status_counts.get(status, 0) + 1
             if status == "found":
-                critical_latent_found.append(float(result["z_critical"]))
+                critical_latent = float(result["z_critical"])
+                critical_physical = float(
+                    apply_single_affine(
+                        np.asarray([critical_latent], dtype=np.float64),
+                        float(mapping_used["coef"]),
+                        float(mapping_used["intercept"]),
+                    )[0]
+                )
+                critical_latent_found.append(critical_latent)
+            else:
+                critical_latent = None
+                critical_physical = None
+            realization_records.append(
+                {
+                    "realization": int(r_id),
+                    "seed": int(cfg["seed"] + r_id),
+                    "status": status,
+                    "base_is_healthy": bool(base_is_healthy),
+                    "critical_latent": critical_latent,
+                    "critical_physical": critical_physical,
+                }
+            )
 
         critical_latent_found_arr = np.asarray(critical_latent_found, dtype=np.float64)
         critical_physical_found = apply_single_affine(
@@ -255,11 +298,13 @@ def main() -> None:
             target_physical_direction=target_physical_direction,
             num_realizations=cfg["evaluation"]["num_realizations"],
             base_param_value=float(params[base_index, 0]),
+            requested_base_param_value=requested_base_param_value,
             base_latent_value=float(base_z[0]),
             base_index=base_index,
             base_param_strategy=base_param_strategy,
             status_counts=status_counts,
             require_healthy_base=require_healthy_base,
+            realization_records=realization_records,
         )
         if cfg["system"]["type"] == "ks":
             errs = np.array(

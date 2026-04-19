@@ -564,3 +564,37 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - implementer_lease_expires_at: "\"2026-04-19T17:27:33+00:00\" -> \"2026-04-19T17:39:22+00:00\""
 - last_implementer_status: "\"n30_gate_failed_right_tail\" -> \"round4_gate_failed\""
 - updated_at: "\"2026-04-19T17:12:33+00:00\" -> \"2026-04-19T17:24:22+00:00\""
+
+## 2026-04-19T17:25:06.260752+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "src/train/eval_reservoir.py"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_rawdetails.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: null
+- remaining_questions: null
+- response_rationale: null
+- response_to_strategist: null
+- status: "instrument_eval_raw_details"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T172506260689Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_expansion_round4\"] -> [\".cocodex\", \"src/train/eval_reservoir.py\"]"
+- implementer_last_checkin_at: "\"2026-04-19T17:24:22+00:00\" -> \"2026-04-19T17:25:06+00:00\""
+- implementer_lease_expires_at: "\"2026-04-19T17:39:22+00:00\" -> \"2026-04-19T17:40:06+00:00\""
+- last_implementer_status: "\"round4_gate_failed\" -> \"instrument_eval_raw_details\""
+- updated_at: "\"2026-04-19T17:24:22+00:00\" -> \"2026-04-19T17:25:06+00:00\""
