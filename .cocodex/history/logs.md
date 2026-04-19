@@ -1332,3 +1332,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[] -> [\"none blocking\"]"
 - strategist_round_id: "\"round-0007\" -> \"round-0008\""
 - updated_at: "\"2026-04-19T23:41:43+00:00\" -> \"2026-04-19T23:42:43+00:00\""
+
+## 2026-04-19T23:56:17.011291+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_n100_high_ratio_round16", "scripts/experiment_round16_n100_high_ratio.py"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round16.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Round16 high ratios passed found/tails but failed median; do not expand to n1000; stop fixed ridge1e-4 ratio branch."
+- remaining_questions: []
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round16_high_ratio_n100_failed_median"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260419T235617011231Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_n100_round15\", \"scripts/experiment_round15_n100.py\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_n100_high_ratio_round16\", \"scripts/experiment_round16_n100_high_ratio.py\"]"
+- implementer_last_checkin_at: "\"2026-04-19T23:41:43+00:00\" -> \"2026-04-19T23:56:17+00:00\""
+- implementer_last_question_disposition: "\"ratio0.300 n100 failed found/miss; do not proceed to n1000; next check higher ratio stability.\" -> \"Round16 high ratios passed found/tails but failed median; do not expand to n1000; stop fixed ridge1e-4 ratio branch.\""
+- implementer_lease_expires_at: "\"2026-04-19T23:56:43+00:00\" -> \"2026-04-20T00:11:17+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round15_ratio0300_n100_failed_miss\" -> \"round16_high_ratio_n100_failed_median\""
+- pending_questions: "[\"none blocking\"] -> []"
+- updated_at: "\"2026-04-19T23:42:43+00:00\" -> \"2026-04-19T23:56:17+00:00\""
