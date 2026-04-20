@@ -1,1 +1,0 @@
-/home/Creeken/miniconda3/envs/pytorch/bin/python -m src.train.eval_reservoir --config /tmp/lorenz_eval_layer_configs_round24_alpha05_ratio035/alpha0p5_ratio0350_n100.yaml --full

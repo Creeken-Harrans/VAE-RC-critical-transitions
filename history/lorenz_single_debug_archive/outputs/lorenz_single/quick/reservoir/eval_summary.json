@@ -1,0 +1,38 @@
+{
+  "base_index": 5,
+  "base_latent_value": 0.24790970981121063,
+  "base_param_strategy": "target_value",
+  "base_param_value": 29.679349899291992,
+  "found_only_predicted_critical_latent": {
+    "max": -0.03209044277668002,
+    "mean": -0.12542357265949253,
+    "median": -0.07209013760089875,
+    "min": -0.27209013760089873,
+    "std": 0.10498668121970348
+  },
+  "found_only_predicted_critical_point": {
+    "max": 29.76614319818265,
+    "mean": 29.520335749331533,
+    "median": 29.660797722766688,
+    "min": 29.134066327045254,
+    "std": 0.27649890565507895
+  },
+  "latent_scan_direction": -1.0,
+  "mapping_used": {
+    "coef": 2.6336569786071777,
+    "intercept": 29.850658416748047,
+    "r2": 0.003875911235809326,
+    "source": "run_fitted"
+  },
+  "miss_rate": 0.625,
+  "num_found": 3,
+  "num_miss": 5,
+  "num_realizations": 8,
+  "require_healthy_base": true,
+  "status_counts": {
+    "found": 3,
+    "no_transition_found": 5,
+    "unhealthy_at_base": 0
+  },
+  "target_physical_direction": "decrease"
+}

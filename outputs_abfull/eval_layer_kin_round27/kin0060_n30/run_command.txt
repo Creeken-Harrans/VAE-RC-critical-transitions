@@ -1,1 +1,0 @@
-/home/Creeken/miniconda3/envs/pytorch/bin/python -m src.train.eval_reservoir --config /tmp/lorenz_eval_layer_configs_round27_kin/kin0060_n30.yaml --full

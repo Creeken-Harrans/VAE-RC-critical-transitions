@@ -1,0 +1,548 @@
+[
+  {
+    "name": "ratio2p0_coarse50_n8",
+    "score": 1.0941491053216426,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.8023196470737457,
+        "mean": -1.0953298399448395,
+        "median": -1.0843969786167147,
+        "min": -1.3252926695346832,
+        "std": 0.19318071352636104
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050025517582895,
+        "mean": 23.79008168823719,
+        "median": 23.837092991948126,
+        "min": 22.80124152100086,
+        "std": 0.8306770681633532
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.375,
+      "num_found": 5,
+      "num_miss": 3,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 5,
+        "no_transition_found": 2,
+        "unhealthy_at_base": 1
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "ratio2p0_coarse60_n8",
+    "score": 1.0941491053216426,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.8023196470737457,
+        "mean": -1.0953298399448395,
+        "median": -1.0843969786167147,
+        "min": -1.3252926695346832,
+        "std": 0.19318071352636104
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050025517582895,
+        "mean": 23.79008168823719,
+        "median": 23.837092991948126,
+        "min": 22.80124152100086,
+        "std": 0.8306770681633532
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.375,
+      "num_found": 5,
+      "num_miss": 3,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 5,
+        "no_transition_found": 2,
+        "unhealthy_at_base": 1
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "ratio2p0_coarse70_n8",
+    "score": 1.0941491053216426,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.8023196470737457,
+        "mean": -1.0953298399448395,
+        "median": -1.0843969786167147,
+        "min": -1.3252926695346832,
+        "std": 0.19318071352636104
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050025517582895,
+        "mean": 23.79008168823719,
+        "median": 23.837092991948126,
+        "min": 22.80124152100086,
+        "std": 0.8306770681633532
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.375,
+      "num_found": 5,
+      "num_miss": 3,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 5,
+        "no_transition_found": 2,
+        "unhealthy_at_base": 1
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "coarse50_n8",
+    "score": 1.562814689108114,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.7623196470737458,
+        "mean": -1.1173198759555818,
+        "median": -1.1923199522495271,
+        "min": -1.322319952249527,
+        "std": 0.22555499145157182
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.222025517582892,
+        "mean": 23.695524533390998,
+        "median": 23.373024205327035,
+        "min": 22.814024205327033,
+        "std": 0.9698864632417582
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.5,
+      "num_found": 4,
+      "num_miss": 4,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 4,
+        "no_transition_found": 4,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "coarse55_n8",
+    "score": 1.562814689108114,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.7623196470737458,
+        "mean": -1.1173198759555818,
+        "median": -1.1923199522495271,
+        "min": -1.322319952249527,
+        "std": 0.22555499145157182
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.222025517582892,
+        "mean": 23.695524533390998,
+        "median": 23.373024205327035,
+        "min": 22.814024205327033,
+        "std": 0.9698864632417582
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.5,
+      "num_found": 4,
+      "num_miss": 4,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 4,
+        "no_transition_found": 4,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "coarse60_n8",
+    "score": 1.562814689108114,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.7623196470737458,
+        "mean": -1.1173198759555818,
+        "median": -1.1923199522495271,
+        "min": -1.322319952249527,
+        "std": 0.22555499145157182
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.222025517582892,
+        "mean": 23.695524533390998,
+        "median": 23.373024205327035,
+        "min": 22.814024205327033,
+        "std": 0.9698864632417582
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.5,
+      "num_found": 4,
+      "num_miss": 4,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 4,
+        "no_transition_found": 4,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "coarse70_n8",
+    "score": 1.562814689108114,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.7623196470737458,
+        "mean": -1.1173198759555818,
+        "median": -1.1923199522495271,
+        "min": -1.322319952249527,
+        "std": 0.22555499145157182
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.222025517582892,
+        "mean": 23.695524533390998,
+        "median": 23.373024205327035,
+        "min": 22.814024205327033,
+        "std": 0.9698864632417582
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.5,
+      "num_found": 4,
+      "num_miss": 4,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 4,
+        "no_transition_found": 4,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "coarse80_n8",
+    "score": 1.562814689108114,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.7623196470737458,
+        "mean": -1.1173198759555818,
+        "median": -1.1923199522495271,
+        "min": -1.322319952249527,
+        "std": 0.22555499145157182
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.222025517582892,
+        "mean": 23.695524533390998,
+        "median": 23.373024205327035,
+        "min": 22.814024205327033,
+        "std": 0.9698864632417582
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.5,
+      "num_found": 4,
+      "num_miss": 4,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 4,
+        "no_transition_found": 4,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "scanstep001_coarse120_n8",
+    "score": 2.222691284353808,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.4423198759555817,
+        "mean": -1.0448198759555818,
+        "median": -1.2023198759555818,
+        "min": -1.3323198759555819,
+        "std": 0.36037307058103
+      },
+      "found_only_predicted_critical_point": {
+        "max": 26.598024533390998,
+        "mean": 24.007274533390998,
+        "median": 23.330024533390997,
+        "min": 22.771024533391,
+        "std": 1.5496042034984285
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.5,
+      "num_found": 4,
+      "num_miss": 4,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 4,
+        "no_transition_found": 4,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "ratio1p5_coarse50_n8",
+    "score": 2.3009349028526294,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.46231964707374573,
+        "mean": -0.9949894468784333,
+        "median": -1.0843969786167147,
+        "min": -1.322319952249527,
+        "std": 0.32595470614324323
+      },
+      "found_only_predicted_critical_point": {
+        "max": 26.51202551758289,
+        "mean": 24.221545378422736,
+        "median": 23.837092991948126,
+        "min": 22.814024205327033,
+        "std": 1.4016052364159453
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.375,
+      "num_found": 5,
+      "num_miss": 3,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 5,
+        "no_transition_found": 3,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "ratio1p5_coarse60_n8",
+    "score": 2.3009349028526294,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.46231964707374573,
+        "mean": -0.9949894468784333,
+        "median": -1.0843969786167147,
+        "min": -1.322319952249527,
+        "std": 0.32595470614324323
+      },
+      "found_only_predicted_critical_point": {
+        "max": 26.51202551758289,
+        "mean": 24.221545378422736,
+        "median": 23.837092991948126,
+        "min": 22.814024205327033,
+        "std": 1.4016052364159453
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.375,
+      "num_found": 5,
+      "num_miss": 3,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 5,
+        "no_transition_found": 3,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "ratio1p5_coarse70_n8",
+    "score": 2.3009349028526294,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.46231964707374573,
+        "mean": -0.9949894468784333,
+        "median": -1.0843969786167147,
+        "min": -1.322319952249527,
+        "std": 0.32595470614324323
+      },
+      "found_only_predicted_critical_point": {
+        "max": 26.51202551758289,
+        "mean": 24.221545378422736,
+        "median": 23.837092991948126,
+        "min": 22.814024205327033,
+        "std": 1.4016052364159453
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.375,
+      "num_found": 5,
+      "num_miss": 3,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 5,
+        "no_transition_found": 3,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  },
+  {
+    "name": "scanstep0015_coarse80_n8",
+    "score": 2.771244032587698,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "found_only_predicted_critical_latent": {
+        "max": -0.43731991410255433,
+        "mean": -1.0323198378086091,
+        "median": -1.3073199141025542,
+        "min": -1.3523196852207184,
+        "std": 0.42112937581209725
+      },
+      "found_only_predicted_critical_point": {
+        "max": 26.619524369359016,
+        "mean": 24.061024697422983,
+        "median": 22.878524369359017,
+        "min": 22.685025353550913,
+        "std": 1.8108563159920177
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.625,
+      "num_found": 3,
+      "num_miss": 5,
+      "num_realizations": 8,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 3,
+        "no_transition_found": 5,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    }
+  }
+]

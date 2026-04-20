@@ -1,0 +1,4 @@
+{
+  "best_recon": 0.09640897065401077,
+  "checkpoint": "outputs_abfull/lorenz_single_linspace_ab/full/vae/best.tar"
+}
