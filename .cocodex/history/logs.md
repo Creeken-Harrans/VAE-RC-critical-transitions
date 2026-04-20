@@ -1722,3 +1722,45 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[] -> [\"none blocking\"]"
 - strategist_round_id: "\"round-0013\" -> \"round-0014\""
 - updated_at: "\"2026-04-20T01:54:55+00:00\" -> \"2026-04-20T01:56:47+00:00\""
+
+## 2026-04-20T02:07:38.816207+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_alpha_round22", "scripts/experiment_round22_alpha.py"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round22.md"
+- phase: "implementation"
+- proposed_alternative: "run n30 alpha0.5 ratio refinement at 0.325 and 0.35 before spectral_radius"
+- question_disposition: null
+- remaining_questions: null
+- response_rationale: "alpha0.5 solved shoulder target but failed median; targeted ratio refinement may fix center without broad search"
+- response_to_strategist: "challenge"
+- status: "round22_alpha_no_direct_expansion_alpha05_promising"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T020738816139Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_predict_steps_round21\", \"scripts/experiment_round21_predict_steps.py\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_alpha_round22\", \"scripts/experiment_round22_alpha.py\"]"
+- dispute_round_count: "2 -> 3"
+- finish_gate_status: "\"open\" -> \"blocked\""
+- implementer_last_checkin_at: "\"2026-04-20T01:54:55+00:00\" -> \"2026-04-20T02:07:38+00:00\""
+- implementer_last_proposed_alternative: "\"\" -> \"run n30 alpha0.5 ratio refinement at 0.325 and 0.35 before spectral_radius\""
+- implementer_last_question_disposition: "\"Round21 completed; no predict_steps candidate passed n30 expansion gate.\" -> \"\""
+- implementer_last_response_mode: "\"accept\" -> \"challenge\""
+- implementer_last_response_rationale: "\"\" -> \"alpha0.5 solved shoulder target but failed median; targeted ratio refinement may fix center without broad search\""
+- implementer_lease_expires_at: "\"2026-04-20T02:09:55+00:00\" -> \"2026-04-20T02:22:38+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round21_predict_steps_no_expansion\" -> \"round22_alpha_no_direct_expansion_alpha05_promising\""
+- last_known_phase: "\"implementation\" -> \"dispute\""
+- updated_at: "\"2026-04-20T01:56:47+00:00\" -> \"2026-04-20T02:07:38+00:00\""
