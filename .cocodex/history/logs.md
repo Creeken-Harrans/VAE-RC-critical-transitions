@@ -1792,3 +1792,44 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - last_strategist_decision: "\"approve_round22_alpha_leak_sweep_n30\" -> \"approve_round23_alpha05_ratio_refinement_n30\""
 - strategist_round_id: "\"round-0014\" -> \"round-0015\""
 - updated_at: "\"2026-04-20T02:07:38+00:00\" -> \"2026-04-20T02:08:50+00:00\""
+
+## 2026-04-20T02:18:02.268019+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: ["outputs_abfull/eval_layer_alpha05_ratio_round23"]
+- finish_vote: "no"
+- from_file: null
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Round23 tested alpha=0.5 detector-ratio refinement at n=30. ratio=0.35 passes gate exactly: found=21/30, miss=0.30, mean=23.9894, median=24.190, std=0.5966, min=22.642, max=24.964, shoulder22_23.3=3, right24.7_25.5=2, below22=0, above25.5=0. ratio=0.325 fails miss and median. Recommendation: expand ratio=0.35 to n=100 before any n=1000 rerun."
+- remaining_questions: []
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round23_alpha05_ratio_n30_complete"
+- text_supplied: true
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T021802267955Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_alpha_round22\", \"scripts/experiment_round22_alpha.py\"] -> [\"outputs_abfull/eval_layer_alpha05_ratio_round23\"]"
+- implementer_last_checkin_at: "\"2026-04-20T02:07:38+00:00\" -> \"2026-04-20T02:18:02+00:00\""
+- implementer_last_proposed_alternative: "\"run n30 alpha0.5 ratio refinement at 0.325 and 0.35 before spectral_radius\" -> \"\""
+- implementer_last_question_disposition: "\"\" -> \"Round23 tested alpha=0.5 detector-ratio refinement at n=30. ratio=0.35 passes gate exactly: found=21/30, miss=0.30, mean=23.9894, median=24.190, std=0.5966, min=22.642, max=24.964, shoulder22_23.3=3, right24.7_25.5=2, below22=0, above25.5=0. ratio=0.325 fails miss and median. Recommendation: expand ratio=0.35 to n=100 before any n=1000 rerun.\""
+- implementer_last_response_mode: "\"challenge\" -> \"accept\""
+- implementer_last_response_rationale: "\"alpha0.5 solved shoulder target but failed median; targeted ratio refinement may fix center without broad search\" -> \"\""
+- implementer_lease_expires_at: "\"2026-04-20T02:22:38+00:00\" -> \"2026-04-20T02:33:02+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round22_alpha_no_direct_expansion_alpha05_promising\" -> \"round23_alpha05_ratio_n30_complete\""
+- last_known_phase: "\"dispute\" -> \"implementation\""
+- pending_questions: "[\"none blocking\"] -> []"
+- updated_at: "\"2026-04-20T02:08:50+00:00\" -> \"2026-04-20T02:18:02+00:00\""
