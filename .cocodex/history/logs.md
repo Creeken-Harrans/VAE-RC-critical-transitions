@@ -1990,3 +1990,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[\"next branch after lambda sweep no full pass\"] -> []"
 - strategist_round_id: "\"round-0017\" -> \"round-0018\""
 - updated_at: "\"2026-04-20T02:45:00+00:00\" -> \"2026-04-20T02:46:04+00:00\""
+
+## 2026-04-20T02:57:36.943526+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: ["outputs_abfull/eval_layer_lambda_round26_local"]
+- finish_vote: "no"
+- from_file: null
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Round26 local lambda n=30 sweep completed for 1.40, 1.42, 1.47, 1.50. No full pass. lambda1.47 has found=23/30, miss=0.233, mean=23.9245, median=24.104, std=0.6804, no tails, but shoulder=6>3. lambda1.50 has shoulder=3, mean=24.0524, median=24.104, no tails, but found=20/30 and miss=0.333. lambda1.40/1.42 fail found/miss and right bin/center. Per strategist rule, lambda branch should close unless overruled."
+- remaining_questions: ["next one-knob branch after lambda closure"]
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round26_lambda_local_no_pass"
+- text_supplied: true
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T025736943457Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/eval_layer_lambda_round25\"] -> [\"outputs_abfull/eval_layer_lambda_round26_local\"]"
+- implementer_last_checkin_at: "\"2026-04-20T02:45:00+00:00\" -> \"2026-04-20T02:57:36+00:00\""
+- implementer_last_question_disposition: "\"Round25 lambda n=30 sweep completed for 1.20, 1.25, 1.34 control, 1.35, 1.45. No full gate pass. Control 1.34 has found=23/30, mean=23.9507, median=24.018, std=0.67 but shoulder=5>3. lambda1.45 has best shape: found=20/30, miss=0.333, mean=24.1298, median=24.147, std=0.5594, shoulder=3, right=4, no tails, but fails found/miss by one realization. lambda1.35 fails mean/median/shoulder. lambda1.25 and lambda1.20 shift high and fail found/center. Need next branch decision.\" -> \"Round26 local lambda n=30 sweep completed for 1.40, 1.42, 1.47, 1.50. No full pass. lambda1.47 has found=23/30, miss=0.233, mean=23.9245, median=24.104, std=0.6804, no tails, but shoulder=6>3. lambda1.50 has shoulder=3, mean=24.0524, median=24.104, no tails, but found=20/30 and miss=0.333. lambda1.40/1.42 fail found/miss and right bin/center. Per strategist rule, lambda branch should close unless overruled.\""
+- implementer_lease_expires_at: "\"2026-04-20T03:00:00+00:00\" -> \"2026-04-20T03:12:36+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round25_lambda_n30_no_full_pass\" -> \"round26_lambda_local_no_pass\""
+- pending_questions: "[] -> [\"next one-knob branch after lambda closure\"]"
+- updated_at: "\"2026-04-20T02:46:04+00:00\" -> \"2026-04-20T02:57:36+00:00\""
