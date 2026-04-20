@@ -1,0 +1,1 @@
+/home/Creeken/miniconda3/envs/pytorch/bin/python -m src.train.eval_reservoir --config /tmp/lorenz_eval_layer_configs_round25_lambda/lambda125_n30.yaml --full

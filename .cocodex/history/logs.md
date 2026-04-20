@@ -1925,3 +1925,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[\"next branch after alpha-ratio n100 failure\"] -> []"
 - strategist_round_id: "\"round-0016\" -> \"round-0017\""
 - updated_at: "\"2026-04-20T02:29:32+00:00\" -> \"2026-04-20T02:30:35+00:00\""
+
+## 2026-04-20T02:45:00.878345+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: ["outputs_abfull/eval_layer_lambda_round25"]
+- finish_vote: "no"
+- from_file: null
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Round25 lambda n=30 sweep completed for 1.20, 1.25, 1.34 control, 1.35, 1.45. No full gate pass. Control 1.34 has found=23/30, mean=23.9507, median=24.018, std=0.67 but shoulder=5>3. lambda1.45 has best shape: found=20/30, miss=0.333, mean=24.1298, median=24.147, std=0.5594, shoulder=3, right=4, no tails, but fails found/miss by one realization. lambda1.35 fails mean/median/shoulder. lambda1.25 and lambda1.20 shift high and fail found/center. Need next branch decision."
+- remaining_questions: ["next branch after lambda sweep no full pass"]
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round25_lambda_n30_no_full_pass"
+- text_supplied: true
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T024500878277Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/eval_layer_alpha05_ratio_round24_n100\"] -> [\"outputs_abfull/eval_layer_lambda_round25\"]"
+- implementer_last_checkin_at: "\"2026-04-20T02:29:32+00:00\" -> \"2026-04-20T02:45:00+00:00\""
+- implementer_last_question_disposition: "\"Round24 n=100 for alpha=0.5 ratio=0.35 completed. It passes found/miss/mean/std/right-tail gates but fails median and shoulder gates: found=76/100, miss=0.24, mean=24.0508, median=24.2330, std=0.5996, min=22.6420, max=25.0500, shoulder22_23.3=12>10, right24.7_25.5=8, below22=0, above25.5=0. This rejects expansion to n=1000 under prior strategist gate. Request next branch recommendation.\" -> \"Round25 lambda n=30 sweep completed for 1.20, 1.25, 1.34 control, 1.35, 1.45. No full gate pass. Control 1.34 has found=23/30, mean=23.9507, median=24.018, std=0.67 but shoulder=5>3. lambda1.45 has best shape: found=20/30, miss=0.333, mean=24.1298, median=24.147, std=0.5594, shoulder=3, right=4, no tails, but fails found/miss by one realization. lambda1.35 fails mean/median/shoulder. lambda1.25 and lambda1.20 shift high and fail found/center. Need next branch decision.\""
+- implementer_lease_expires_at: "\"2026-04-20T02:44:32+00:00\" -> \"2026-04-20T03:00:00+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round24_alpha05_ratio035_n100_failed_gate\" -> \"round25_lambda_n30_no_full_pass\""
+- pending_questions: "[] -> [\"next branch after lambda sweep no full pass\"]"
+- updated_at: "\"2026-04-20T02:30:35+00:00\" -> \"2026-04-20T02:45:00+00:00\""

@@ -1,0 +1,1572 @@
+[
+  {
+    "above25p5": 0,
+    "above26": 0,
+    "alpha": 0.7,
+    "below21": 0,
+    "below22": 0,
+    "bin_22_0_23_3": 5,
+    "bin_23_3_23_8": 2,
+    "bin_23_8_24_7": 14,
+    "bin_24_7_25_5": 2,
+    "coarse_steps": 50,
+    "gate": {
+      "above25p5_eq_0": true,
+      "above26_eq_0": true,
+      "below22_eq_0": true,
+      "found_ge_21": true,
+      "mean_in_range": true,
+      "median_in_range": true,
+      "miss_le_0p30": true,
+      "right_bin_le_4": true,
+      "shoulder_le_3": false,
+      "std_le_0p80": true
+    },
+    "kind": "control",
+    "lambda": 1.34,
+    "name": "lambda134_control_n30",
+    "predict_steps": 400,
+    "ratio": 0.375,
+    "ridge_reg": 7e-05,
+    "score": 0.46125570895360596,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "coarse_unhealthy_streak": 1,
+      "found_only_predicted_critical_latent": {
+        "max": -0.802319952249527,
+        "mean": -1.0579720730885216,
+        "median": -1.0423199522495272,
+        "min": -1.4023196470737456,
+        "std": 0.15580994544040574
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050024205327034,
+        "mean": 23.950720085719357,
+        "median": 24.018024205327034,
+        "min": 22.470025517582894,
+        "std": 0.6699827653937448
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.23333333333333334,
+      "num_found": 23,
+      "num_miss": 7,
+      "num_realizations": 30,
+      "realizations": [
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0423199522495272,
+          "critical_physical": 24.018024205327034,
+          "realization": 0,
+          "seed": 7,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 1,
+          "seed": 8,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.262319952249527,
+          "critical_physical": 23.072024205327033,
+          "realization": 2,
+          "seed": 9,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 3,
+          "seed": 10,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0823199522495273,
+          "critical_physical": 23.846024205327033,
+          "realization": 4,
+          "seed": 11,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.222319952249527,
+          "critical_physical": 23.244024205327033,
+          "realization": 5,
+          "seed": 12,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.802319952249527,
+          "critical_physical": 25.050024205327034,
+          "realization": 6,
+          "seed": 13,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.242319952249527,
+          "critical_physical": 23.158024205327035,
+          "realization": 7,
+          "seed": 14,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.202319952249527,
+          "critical_physical": 23.330024205327035,
+          "realization": 8,
+          "seed": 15,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823199522495271,
+          "critical_physical": 24.276024205327033,
+          "realization": 9,
+          "seed": 16,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0623199522495272,
+          "critical_physical": 23.932024205327032,
+          "realization": 10,
+          "seed": 17,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 11,
+          "seed": 18,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 12,
+          "seed": 19,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.942319952249527,
+          "critical_physical": 24.448024205327034,
+          "realization": 13,
+          "seed": 20,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 14,
+          "seed": 21,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.942319952249527,
+          "critical_physical": 24.448024205327034,
+          "realization": 15,
+          "seed": 22,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.1423196470737458,
+          "critical_physical": 23.588025517582892,
+          "realization": 16,
+          "seed": 23,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 17,
+          "seed": 24,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823196470737457,
+          "critical_physical": 24.276025517582895,
+          "realization": 18,
+          "seed": 25,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 19,
+          "seed": 26,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 20,
+          "seed": 27,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 21,
+          "seed": 28,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0423199522495272,
+          "critical_physical": 24.018024205327034,
+          "realization": 22,
+          "seed": 29,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.342319952249527,
+          "critical_physical": 22.728024205327035,
+          "realization": 23,
+          "seed": 30,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 24,
+          "seed": 31,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223199522495272,
+          "critical_physical": 24.104024205327033,
+          "realization": 25,
+          "seed": 32,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0623196470737457,
+          "critical_physical": 23.932025517582893,
+          "realization": 26,
+          "seed": 33,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.4023196470737456,
+          "critical_physical": 22.470025517582894,
+          "realization": 27,
+          "seed": 34,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 28,
+          "seed": 35,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.822319952249527,
+          "critical_physical": 24.964024205327036,
+          "realization": 29,
+          "seed": 36,
+          "status": "found"
+        }
+      ],
+      "requested_base_param_value": 30.0,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 23,
+        "no_transition_found": 7,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    },
+    "train_length": 500
+  },
+  {
+    "above25p5": 0,
+    "above26": 0,
+    "alpha": 0.7,
+    "below21": 0,
+    "below22": 0,
+    "bin_22_0_23_3": 4,
+    "bin_23_3_23_8": 3,
+    "bin_23_8_24_7": 12,
+    "bin_24_7_25_5": 2,
+    "coarse_steps": 50,
+    "gate": {
+      "above25p5_eq_0": true,
+      "above26_eq_0": true,
+      "below22_eq_0": true,
+      "found_ge_21": true,
+      "mean_in_range": false,
+      "median_in_range": false,
+      "miss_le_0p30": true,
+      "right_bin_le_4": true,
+      "shoulder_le_3": false,
+      "std_le_0p80": true
+    },
+    "kind": "candidate",
+    "lambda": 1.35,
+    "name": "lambda135_n30",
+    "predict_steps": 400,
+    "ratio": 0.375,
+    "ridge_reg": 7e-05,
+    "score": 0.5814750239394952,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "coarse_unhealthy_streak": 1,
+      "found_only_predicted_critical_latent": {
+        "max": -0.802319952249527,
+        "mean": -1.077557960294542,
+        "median": -1.0623199522495272,
+        "min": -1.4023196470737456,
+        "std": 0.16743487284357098
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050024205327034,
+        "mean": 23.86650077073347,
+        "median": 23.932024205327032,
+        "min": 22.470025517582894,
+        "std": 0.7199699532273551
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.3,
+      "num_found": 21,
+      "num_miss": 9,
+      "num_realizations": 30,
+      "realizations": [
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0823196470737457,
+          "critical_physical": 23.846025517582895,
+          "realization": 0,
+          "seed": 7,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 1,
+          "seed": 8,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.2823196470737455,
+          "critical_physical": 22.986025517582895,
+          "realization": 2,
+          "seed": 9,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 3,
+          "seed": 10,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0823199522495273,
+          "critical_physical": 23.846024205327033,
+          "realization": 4,
+          "seed": 11,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.3623196470737455,
+          "critical_physical": 22.642025517582894,
+          "realization": 5,
+          "seed": 12,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.802319952249527,
+          "critical_physical": 25.050024205327034,
+          "realization": 6,
+          "seed": 13,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 7,
+          "seed": 14,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.202319952249527,
+          "critical_physical": 23.330024205327035,
+          "realization": 8,
+          "seed": 15,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823199522495271,
+          "critical_physical": 24.276024205327033,
+          "realization": 9,
+          "seed": 16,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0623199522495272,
+          "critical_physical": 23.932024205327032,
+          "realization": 10,
+          "seed": 17,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 11,
+          "seed": 18,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 12,
+          "seed": 19,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 13,
+          "seed": 20,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 14,
+          "seed": 21,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 15,
+          "seed": 22,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.1223199522495273,
+          "critical_physical": 23.674024205327033,
+          "realization": 16,
+          "seed": 23,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 17,
+          "seed": 24,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823196470737457,
+          "critical_physical": 24.276025517582895,
+          "realization": 18,
+          "seed": 25,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.1423199522495269,
+          "critical_physical": 23.588024205327034,
+          "realization": 19,
+          "seed": 26,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 20,
+          "seed": 27,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 21,
+          "seed": 28,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0423199522495272,
+          "critical_physical": 24.018024205327034,
+          "realization": 22,
+          "seed": 29,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 23,
+          "seed": 30,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.862319952249527,
+          "critical_physical": 24.792024205327035,
+          "realization": 24,
+          "seed": 31,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223199522495272,
+          "critical_physical": 24.104024205327033,
+          "realization": 25,
+          "seed": 32,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0623199522495272,
+          "critical_physical": 23.932024205327032,
+          "realization": 26,
+          "seed": 33,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.4023196470737456,
+          "critical_physical": 22.470025517582894,
+          "realization": 27,
+          "seed": 34,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 28,
+          "seed": 35,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.4023196470737456,
+          "critical_physical": 22.470025517582894,
+          "realization": 29,
+          "seed": 36,
+          "status": "found"
+        }
+      ],
+      "requested_base_param_value": 30.0,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 21,
+        "no_transition_found": 9,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    },
+    "train_length": 500
+  },
+  {
+    "above25p5": 0,
+    "above26": 0,
+    "alpha": 0.7,
+    "below21": 0,
+    "below22": 0,
+    "bin_22_0_23_3": 3,
+    "bin_23_3_23_8": 3,
+    "bin_23_8_24_7": 10,
+    "bin_24_7_25_5": 4,
+    "coarse_steps": 50,
+    "gate": {
+      "above25p5_eq_0": true,
+      "above26_eq_0": true,
+      "below22_eq_0": true,
+      "found_ge_21": false,
+      "mean_in_range": true,
+      "median_in_range": true,
+      "miss_le_0p30": false,
+      "right_bin_le_4": true,
+      "shoulder_le_3": true,
+      "std_le_0p80": true
+    },
+    "kind": "candidate",
+    "lambda": 1.45,
+    "name": "lambda145_n30",
+    "predict_steps": 400,
+    "ratio": 0.375,
+    "ridge_reg": 7e-05,
+    "score": 0.9435161271254322,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "coarse_unhealthy_streak": 1,
+      "found_only_predicted_critical_latent": {
+        "max": -0.8023196470737457,
+        "mean": -1.0163198606967927,
+        "median": -1.0123197996616364,
+        "min": -1.2623196470737454,
+        "std": 0.1300922543002688
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050025517582895,
+        "mean": 24.129824599003797,
+        "median": 24.147024861454966,
+        "min": 23.072025517582894,
+        "std": 0.5593966934911562
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.3333333333333333,
+      "num_found": 20,
+      "num_miss": 10,
+      "num_realizations": 30,
+      "realizations": [
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.1023199522495273,
+          "critical_physical": 23.760024205327035,
+          "realization": 0,
+          "seed": 7,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223196470737457,
+          "critical_physical": 24.104025517582894,
+          "realization": 1,
+          "seed": 8,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.242319952249527,
+          "critical_physical": 23.158024205327035,
+          "realization": 2,
+          "seed": 9,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.222319952249527,
+          "critical_physical": 23.244024205327033,
+          "realization": 3,
+          "seed": 10,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.1023199522495273,
+          "critical_physical": 23.760024205327035,
+          "realization": 4,
+          "seed": 11,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 5,
+          "seed": 12,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 6,
+          "seed": 13,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 7,
+          "seed": 14,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.8023196470737457,
+          "critical_physical": 25.050025517582895,
+          "realization": 8,
+          "seed": 15,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823199522495271,
+          "critical_physical": 24.276024205327033,
+          "realization": 9,
+          "seed": 16,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0823196470737457,
+          "critical_physical": 23.846025517582895,
+          "realization": 10,
+          "seed": 17,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.882319952249527,
+          "critical_physical": 24.706024205327033,
+          "realization": 11,
+          "seed": 18,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.822319952249527,
+          "critical_physical": 24.964024205327036,
+          "realization": 12,
+          "seed": 19,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0023196470737457,
+          "critical_physical": 24.190025517582896,
+          "realization": 13,
+          "seed": 20,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 14,
+          "seed": 21,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.1023196470737457,
+          "critical_physical": 23.760025517582893,
+          "realization": 15,
+          "seed": 22,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 16,
+          "seed": 23,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 17,
+          "seed": 24,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 18,
+          "seed": 25,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 19,
+          "seed": 26,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.942319952249527,
+          "critical_physical": 24.448024205327034,
+          "realization": 20,
+          "seed": 27,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0023199522495272,
+          "critical_physical": 24.190024205327035,
+          "realization": 21,
+          "seed": 28,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223199522495272,
+          "critical_physical": 24.104024205327033,
+          "realization": 22,
+          "seed": 29,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.2623196470737454,
+          "critical_physical": 23.072025517582894,
+          "realization": 23,
+          "seed": 30,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 24,
+          "seed": 31,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223199522495272,
+          "critical_physical": 24.104024205327033,
+          "realization": 25,
+          "seed": 32,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 26,
+          "seed": 33,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 27,
+          "seed": 34,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 28,
+          "seed": 35,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.822319952249527,
+          "critical_physical": 24.964024205327036,
+          "realization": 29,
+          "seed": 36,
+          "status": "found"
+        }
+      ],
+      "requested_base_param_value": 30.0,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 20,
+        "no_transition_found": 10,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    },
+    "train_length": 500
+  },
+  {
+    "above25p5": 0,
+    "above26": 0,
+    "alpha": 0.7,
+    "below21": 0,
+    "below22": 0,
+    "bin_22_0_23_3": 2,
+    "bin_23_3_23_8": 0,
+    "bin_23_8_24_7": 15,
+    "bin_24_7_25_5": 3,
+    "coarse_steps": 50,
+    "gate": {
+      "above25p5_eq_0": true,
+      "above26_eq_0": true,
+      "below22_eq_0": true,
+      "found_ge_21": false,
+      "mean_in_range": false,
+      "median_in_range": false,
+      "miss_le_0p30": false,
+      "right_bin_le_4": true,
+      "shoulder_le_3": true,
+      "std_le_0p80": true
+    },
+    "kind": "candidate",
+    "lambda": 1.25,
+    "name": "lambda125_n30",
+    "predict_steps": 400,
+    "ratio": 0.375,
+    "ridge_reg": 7e-05,
+    "score": 1.267715339771907,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "coarse_unhealthy_streak": 1,
+      "found_only_predicted_critical_latent": {
+        "max": -0.822319952249527,
+        "mean": -0.9823198912143708,
+        "median": -0.952319952249527,
+        "min": -1.322319952249527,
+        "std": 0.1232882602570188
+      },
+      "found_only_predicted_critical_point": {
+        "max": 24.964024205327036,
+        "mean": 24.276024467778207,
+        "median": 24.40502420532703,
+        "min": 22.814024205327033,
+        "std": 0.5301395191051813
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.3333333333333333,
+      "num_found": 20,
+      "num_miss": 10,
+      "num_realizations": 30,
+      "realizations": [
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0023196470737457,
+          "critical_physical": 24.190025517582896,
+          "realization": 0,
+          "seed": 7,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.942319952249527,
+          "critical_physical": 24.448024205327034,
+          "realization": 1,
+          "seed": 8,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.322319952249527,
+          "critical_physical": 22.814024205327033,
+          "realization": 2,
+          "seed": 9,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 3,
+          "seed": 10,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0423199522495272,
+          "critical_physical": 24.018024205327034,
+          "realization": 4,
+          "seed": 11,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0623196470737457,
+          "critical_physical": 23.932025517582893,
+          "realization": 5,
+          "seed": 12,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.262319952249527,
+          "critical_physical": 23.072024205327033,
+          "realization": 6,
+          "seed": 13,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 7,
+          "seed": 14,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.822319952249527,
+          "critical_physical": 24.964024205327036,
+          "realization": 8,
+          "seed": 15,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 9,
+          "seed": 16,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223196470737457,
+          "critical_physical": 24.104025517582894,
+          "realization": 10,
+          "seed": 17,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 11,
+          "seed": 18,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 12,
+          "seed": 19,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 13,
+          "seed": 20,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0023196470737457,
+          "critical_physical": 24.190025517582896,
+          "realization": 14,
+          "seed": 21,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 15,
+          "seed": 22,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 16,
+          "seed": 23,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 17,
+          "seed": 24,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 18,
+          "seed": 25,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.942319952249527,
+          "critical_physical": 24.448024205327034,
+          "realization": 19,
+          "seed": 26,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 20,
+          "seed": 27,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.942319952249527,
+          "critical_physical": 24.448024205327034,
+          "realization": 21,
+          "seed": 28,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.0223199522495272,
+          "critical_physical": 24.104024205327033,
+          "realization": 22,
+          "seed": 29,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 23,
+          "seed": 30,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.8423199522495269,
+          "critical_physical": 24.878024205327034,
+          "realization": 24,
+          "seed": 31,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823199522495271,
+          "critical_physical": 24.276024205327033,
+          "realization": 25,
+          "seed": 32,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 26,
+          "seed": 33,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 27,
+          "seed": 34,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 28,
+          "seed": 35,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.822319952249527,
+          "critical_physical": 24.964024205327036,
+          "realization": 29,
+          "seed": 36,
+          "status": "found"
+        }
+      ],
+      "requested_base_param_value": 30.0,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 20,
+        "no_transition_found": 10,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    },
+    "train_length": 500
+  },
+  {
+    "above25p5": 0,
+    "above26": 0,
+    "alpha": 0.7,
+    "below21": 0,
+    "below22": 0,
+    "bin_22_0_23_3": 1,
+    "bin_23_3_23_8": 0,
+    "bin_23_8_24_7": 11,
+    "bin_24_7_25_5": 8,
+    "coarse_steps": 50,
+    "gate": {
+      "above25p5_eq_0": true,
+      "above26_eq_0": true,
+      "below22_eq_0": true,
+      "found_ge_21": false,
+      "mean_in_range": false,
+      "median_in_range": false,
+      "miss_le_0p30": false,
+      "right_bin_le_4": false,
+      "shoulder_le_3": true,
+      "std_le_0p80": true
+    },
+    "kind": "candidate",
+    "lambda": 1.2,
+    "name": "lambda120_n30",
+    "predict_steps": 400,
+    "ratio": 0.375,
+    "ridge_reg": 7e-05,
+    "score": 1.8407153397719132,
+    "summary": {
+      "base_index": 39,
+      "base_latent_value": -0.42231979966163635,
+      "base_param_strategy": "target_value",
+      "base_param_value": 29.936708450317383,
+      "coarse_unhealthy_streak": 1,
+      "found_only_predicted_critical_latent": {
+        "max": -0.802319952249527,
+        "mean": -0.9223198912143706,
+        "median": -0.902319952249527,
+        "min": -1.4023196470737456,
+        "std": 0.12066475927491949
+      },
+      "found_only_predicted_critical_point": {
+        "max": 25.050024205327034,
+        "mean": 24.53402446777821,
+        "median": 24.620024205327034,
+        "min": 22.470025517582894,
+        "std": 0.518858464882154
+      },
+      "latent_scan_direction": -1.0,
+      "mapping_used": {
+        "coef": 4.3,
+        "intercept": 28.5,
+        "r2": null,
+        "source": "paper_reference"
+      },
+      "miss_rate": 0.3333333333333333,
+      "num_found": 20,
+      "num_miss": 10,
+      "num_realizations": 30,
+      "realizations": [
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 0,
+          "seed": 7,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 1,
+          "seed": 8,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 2,
+          "seed": 9,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 3,
+          "seed": 10,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823199522495271,
+          "critical_physical": 24.276024205327033,
+          "realization": 4,
+          "seed": 11,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.962319952249527,
+          "critical_physical": 24.36202420532703,
+          "realization": 5,
+          "seed": 12,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -1.4023196470737456,
+          "critical_physical": 22.470025517582894,
+          "realization": 6,
+          "seed": 13,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 7,
+          "seed": 14,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.8423199522495269,
+          "critical_physical": 24.878024205327034,
+          "realization": 8,
+          "seed": 15,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 9,
+          "seed": 16,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.882319952249527,
+          "critical_physical": 24.706024205327033,
+          "realization": 10,
+          "seed": 17,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.8423199522495269,
+          "critical_physical": 24.878024205327034,
+          "realization": 11,
+          "seed": 18,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.8823196470737457,
+          "critical_physical": 24.706025517582894,
+          "realization": 12,
+          "seed": 19,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 13,
+          "seed": 20,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9823196470737457,
+          "critical_physical": 24.276025517582895,
+          "realization": 14,
+          "seed": 21,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 15,
+          "seed": 22,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 16,
+          "seed": 23,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 17,
+          "seed": 24,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.902319952249527,
+          "critical_physical": 24.620024205327034,
+          "realization": 18,
+          "seed": 25,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 19,
+          "seed": 26,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.862319952249527,
+          "critical_physical": 24.792024205327035,
+          "realization": 20,
+          "seed": 27,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 21,
+          "seed": 28,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.9423196470737457,
+          "critical_physical": 24.44802551758289,
+          "realization": 22,
+          "seed": 29,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.802319952249527,
+          "critical_physical": 25.050024205327034,
+          "realization": 23,
+          "seed": 30,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.8423199522495269,
+          "critical_physical": 24.878024205327034,
+          "realization": 24,
+          "seed": 31,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.922319952249527,
+          "critical_physical": 24.534024205327036,
+          "realization": 25,
+          "seed": 32,
+          "status": "found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 26,
+          "seed": 33,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 27,
+          "seed": 34,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": null,
+          "critical_physical": null,
+          "realization": 28,
+          "seed": 35,
+          "status": "no_transition_found"
+        },
+        {
+          "base_is_healthy": true,
+          "critical_latent": -0.822319952249527,
+          "critical_physical": 24.964024205327036,
+          "realization": 29,
+          "seed": 36,
+          "status": "found"
+        }
+      ],
+      "requested_base_param_value": 30.0,
+      "require_healthy_base": true,
+      "status_counts": {
+        "found": 20,
+        "no_transition_found": 10,
+        "unhealthy_at_base": 0
+      },
+      "target_physical_direction": "decrease"
+    },
+    "train_length": 500
+  }
+]
