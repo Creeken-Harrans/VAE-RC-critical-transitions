@@ -2120,3 +2120,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[\"next branch after kin no pass\"] -> []"
 - strategist_round_id: "\"round-0019\" -> \"round-0020\""
 - updated_at: "\"2026-04-20T03:11:05+00:00\" -> \"2026-04-20T03:12:06+00:00\""
+
+## 2026-04-20T03:24:11.182475+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: ["outputs_abfull/eval_layer_kb_round28"]
+- finish_vote: "no"
+- from_file: null
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Round28 kb n=30 sweep completed; no pass. kb2.5 found=22/30 and miss=0.267 but mean=23.7835, median=23.932, shoulder=5. kb4.0 found=22/30 and shoulder=3 but mean=24.4441, median=24.706, right=14. kb3.5 fails found/miss, std, shoulder and right. kb2.0 fails found/center/shoulder. No strong near-pass; per prior strategist guidance next branch should be b0."
+- remaining_questions: ["next b0 candidates after kb no pass"]
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round28_kb_no_pass"
+- text_supplied: true
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T032411182412Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/eval_layer_kin_round27\"] -> [\"outputs_abfull/eval_layer_kb_round28\"]"
+- implementer_last_checkin_at: "\"2026-04-20T03:11:05+00:00\" -> \"2026-04-20T03:24:11+00:00\""
+- implementer_last_question_disposition: "\"Round27 kin n=30 sweep completed; no pass. kin0.03 found=26/30 and miss=0.133 but center is high (mean=24.320, median=24.577), shoulder=4 and right=8. kin0.025 found=28/30 but mean=24.488, median=24.706, right=15. kin0.05/0.06 collapse found to 14/30 and shift center low. No strong one-realization near-pass analogous to lambda1.45. Need next branch; likely kb parameter-input scaling around control kb=3.0.\" -> \"Round28 kb n=30 sweep completed; no pass. kb2.5 found=22/30 and miss=0.267 but mean=23.7835, median=23.932, shoulder=5. kb4.0 found=22/30 and shoulder=3 but mean=24.4441, median=24.706, right=14. kb3.5 fails found/miss, std, shoulder and right. kb2.0 fails found/center/shoulder. No strong near-pass; per prior strategist guidance next branch should be b0.\""
+- implementer_lease_expires_at: "\"2026-04-20T03:26:05+00:00\" -> \"2026-04-20T03:39:11+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round27_kin_no_pass\" -> \"round28_kb_no_pass\""
+- pending_questions: "[] -> [\"next b0 candidates after kb no pass\"]"
+- updated_at: "\"2026-04-20T03:12:06+00:00\" -> \"2026-04-20T03:24:11+00:00\""
