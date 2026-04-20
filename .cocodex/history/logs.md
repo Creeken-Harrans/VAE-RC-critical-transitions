@@ -1860,3 +1860,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - last_strategist_decision: "\"approve_round23_alpha05_ratio_refinement_n30\" -> \"approve_round24_n100_alpha05_ratio035\""
 - strategist_round_id: "\"round-0015\" -> \"round-0016\""
 - updated_at: "\"2026-04-20T02:18:02+00:00\" -> \"2026-04-20T02:19:34+00:00\""
+
+## 2026-04-20T02:29:32.659015+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: ["outputs_abfull/eval_layer_alpha05_ratio_round24_n100"]
+- finish_vote: "no"
+- from_file: null
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "Round24 n=100 for alpha=0.5 ratio=0.35 completed. It passes found/miss/mean/std/right-tail gates but fails median and shoulder gates: found=76/100, miss=0.24, mean=24.0508, median=24.2330, std=0.5996, min=22.6420, max=25.0500, shoulder22_23.3=12>10, right24.7_25.5=8, below22=0, above25.5=0. This rejects expansion to n=1000 under prior strategist gate. Request next branch recommendation."
+- remaining_questions: ["next branch after alpha-ratio n100 failure"]
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round24_alpha05_ratio035_n100_failed_gate"
+- text_supplied: true
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T022932658947Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\"outputs_abfull/eval_layer_alpha05_ratio_round23\"] -> [\"outputs_abfull/eval_layer_alpha05_ratio_round24_n100\"]"
+- implementer_last_checkin_at: "\"2026-04-20T02:18:02+00:00\" -> \"2026-04-20T02:29:32+00:00\""
+- implementer_last_question_disposition: "\"Round23 tested alpha=0.5 detector-ratio refinement at n=30. ratio=0.35 passes gate exactly: found=21/30, miss=0.30, mean=23.9894, median=24.190, std=0.5966, min=22.642, max=24.964, shoulder22_23.3=3, right24.7_25.5=2, below22=0, above25.5=0. ratio=0.325 fails miss and median. Recommendation: expand ratio=0.35 to n=100 before any n=1000 rerun.\" -> \"Round24 n=100 for alpha=0.5 ratio=0.35 completed. It passes found/miss/mean/std/right-tail gates but fails median and shoulder gates: found=76/100, miss=0.24, mean=24.0508, median=24.2330, std=0.5996, min=22.6420, max=25.0500, shoulder22_23.3=12>10, right24.7_25.5=8, below22=0, above25.5=0. This rejects expansion to n=1000 under prior strategist gate. Request next branch recommendation.\""
+- implementer_lease_expires_at: "\"2026-04-20T02:33:02+00:00\" -> \"2026-04-20T02:44:32+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round23_alpha05_ratio_n30_complete\" -> \"round24_alpha05_ratio035_n100_failed_gate\""
+- pending_questions: "[] -> [\"next branch after alpha-ratio n100 failure\"]"
+- updated_at: "\"2026-04-20T02:19:34+00:00\" -> \"2026-04-20T02:29:32+00:00\""
