@@ -42,11 +42,11 @@ reservoir:
   kb: 3.0
   b0: 3.5
   alpha: 0.7
-  ridge_reg: 1.0e-6
+  ridge_reg: 7.0e-5
   washout: 30
   warmup: 80
   train_length: 500
-  predict_steps: 800
+  predict_steps: 400
 eval:
   batch_size: 128
 detector:
@@ -56,8 +56,8 @@ detector:
   tail_std_threshold: 0.05
   tail_amplitude_threshold: 0.2
   tail_energy_threshold: 0.05
-  tail_std_ratio_threshold: 0.2
-  tail_amplitude_ratio_threshold: 0.2
+  tail_std_ratio_threshold: 0.375
+  tail_amplitude_ratio_threshold: 0.375
   tail_windows: 3
   tail_window_std_threshold: 0.05
   tail_window_amplitude_threshold: 0.2
@@ -69,7 +69,7 @@ evaluation:
   paper_reference_mapping:
     coef: 4.3
     intercept: 28.5
-  use_paper_reference_mapping: false
+  use_paper_reference_mapping: true
   physical_critical_direction: decrease
   auto_infer_scan_direction: true
   require_healthy_base: true
@@ -77,7 +77,7 @@ evaluation:
   # deprecated / ignored when auto_infer_scan_direction=true
   scan_direction: -1.0
   scan_step: 0.02
-  coarse_steps: 150
+  coarse_steps: 50
   coarse_unhealthy_streak: 1
   binary_steps: 16
 figures:
