@@ -1694,3 +1694,31 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - last_implementer_status: "\"round20_persistence_failed_no_expansion\" -> \"round21_predict_steps_no_expansion\""
 - pending_questions: "[\"none blocking\"] -> []"
 - updated_at: "\"2026-04-20T01:44:25+00:00\" -> \"2026-04-20T01:54:55+00:00\""
+
+## 2026-04-20T01:56:47.588528+00:00 `record-strategist`
+
+- entry_type: control-plane
+- command: record-strategist
+- result: success
+
+### Inputs
+- decision_override: null
+- finish_vote_check: "no"
+- from_file: "/tmp/cocodex_strategist_round22.md"
+- pending_questions: null
+- phase: null
+- text_supplied: false
+
+### Outputs
+- stdout: ".cocodex/strategist_latest.md"
+- strategist_latest_path: ".cocodex/strategist_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T015647588443Z_strategist.md", ".cocodex/strategist_latest.md"]
+
+### Session Changes
+- implementer_response_pending: "false -> true"
+- last_strategist_decision: "\"approve_round21_predict_steps_pivot_n30\" -> \"approve_round22_alpha_leak_sweep_n30\""
+- pending_questions: "[] -> [\"none blocking\"]"
+- strategist_round_id: "\"round-0013\" -> \"round-0014\""
+- updated_at: "\"2026-04-20T01:54:55+00:00\" -> \"2026-04-20T01:56:47+00:00\""
