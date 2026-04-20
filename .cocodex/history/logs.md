@@ -1397,3 +1397,40 @@ This ledger records only repo-local observable `cocodex_state.py` command inputs
 - pending_questions: "[] -> [\"none blocking\"]"
 - strategist_round_id: "\"round-0008\" -> \"round-0009\""
 - updated_at: "\"2026-04-19T23:56:17+00:00\" -> \"2026-04-19T23:57:19+00:00\""
+
+## 2026-04-20T00:03:33.597641+00:00 `record-implementer`
+
+- entry_type: control-plane
+- command: record-implementer
+- result: success
+
+### Inputs
+- acceptance_basis: null
+- changed_files: [".cocodex", "outputs_abfull/eval_layer_ridge_interpolation_round17", "scripts/experiment_round17_ridge_interpolation.py"]
+- finish_vote: "no"
+- from_file: "/tmp/cocodex_implementer_round17.md"
+- phase: "implementation"
+- proposed_alternative: null
+- question_disposition: "ridge7e-5 passed n30 gate and is selected as sole n100 expansion candidate."
+- remaining_questions: []
+- response_rationale: null
+- response_to_strategist: "accept"
+- status: "round17_ridge7e-5_passed_n30"
+- text_supplied: false
+
+### Outputs
+- implementer_latest_path: ".cocodex/implementer_latest.md"
+- stdout: ".cocodex/implementer_latest.md"
+
+### Artifacts
+- paths: [".cocodex/history/20260420T000333597587Z_implementer.md", ".cocodex/implementer_latest.md"]
+
+### Session Changes
+- changed_files: "[\".cocodex\", \"outputs_abfull/eval_layer_n100_high_ratio_round16\", \"scripts/experiment_round16_n100_high_ratio.py\"] -> [\".cocodex\", \"outputs_abfull/eval_layer_ridge_interpolation_round17\", \"scripts/experiment_round17_ridge_interpolation.py\"]"
+- implementer_last_checkin_at: "\"2026-04-19T23:56:17+00:00\" -> \"2026-04-20T00:03:33+00:00\""
+- implementer_last_question_disposition: "\"Round16 high ratios passed found/tails but failed median; do not expand to n1000; stop fixed ridge1e-4 ratio branch.\" -> \"ridge7e-5 passed n30 gate and is selected as sole n100 expansion candidate.\""
+- implementer_lease_expires_at: "\"2026-04-20T00:11:17+00:00\" -> \"2026-04-20T00:18:33+00:00\""
+- implementer_response_pending: "true -> false"
+- last_implementer_status: "\"round16_high_ratio_n100_failed_median\" -> \"round17_ridge7e-5_passed_n30\""
+- pending_questions: "[\"none blocking\"] -> []"
+- updated_at: "\"2026-04-19T23:57:19+00:00\" -> \"2026-04-20T00:03:33+00:00\""
